@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="./common.css">
+    <link rel="stylesheet" href="./body.css">
+	<style>
+			*{
+				box-sizing: border-box;
+			}
+			body{
+				margin: 0;
+				background-color: #f2f2f2;
+			}
+			/*宣传图*/
+            .xct{
+            	width: 1040px;
+            	height: 400px;
+            	margin: 0 auto;
+            	margin-top: 15px;
+            	position: relative;
+            	overflow: hidden;
+            }
+            .xct .inner div{
+			float: left;
+			width: 1040px;
+			height: 400px;
+            }
+            .inner{
+            	position: absolute;
+            	width: 4160px;
+            	animation: move 20s infinite;
+            }
+            @keyframes move{
+            	0%{
+            		left: 0px;
+            	}
+            	35%{
+            		left: -1040px;
+            	}
+				70%{
+					left: -2080px;
+				}
+				100%{
+					left: -3120px;
+				}
+            }
+			/*列表栏目*/
+			ul.list-colum{
+				margin:0 auto;
+				width: 1040px;
+				margin-top: 30px;
+				background-color: #f2f2f2;
+				padding-bottom: 30px;
+			}
+			ul.list-colum:after{
+				display: block;
+				content: "";
+				clear: both;
+			}
+			ul.list-colum>li{
+                /*list-style: none;*/
+				background-color:#14b9c8;
+				float: left;
+				margin-right: 18px;
+				height: 34px;
+				line-height: 34px;
+				padding: 0 15px;
+				font-size: 16px;
+				border-radius: 18px;
+
+			}
+			ul.list-colum>li>a{
+				color: #fff;
+			}
+			ul.list-colum>li:last-child{
+				margin-right: 0;
+			}
+			/*每日新发现*/
+			 .box{
+                 margin: 0 auto;
+             }
+             .box a:hover{
+				text-decoration: underline;
+             }
+			 .box>.found{
+			    width: 1040px;
+			    height: 30px;
+			    background-color: #f2f2f2;
+			    margin: 0 auto;
+			    border-bottom: 1px solid #dddddd;
+				margin-top: 15px;
+			 }
+			 .found img{
+			 	height: 25px;
+			 	width: 270px;
+			 }
+			.left>h2{
+              width: 1016px;
+              float: left;
+              line-height: 20px;
+              border-left: 4px solid #14b9c8;
+              padding-left: 10px;
+			}
+			.left>a{
+				float: left;
+				color: #14b9c8;
+				line-height: 20px;
+			}
+			/*游戏图标*/
+			.nav{
+            padding: 1em 0;
+            width: 1040px;
+            margin: 0 auto;
+            background-color: #f2f2f2;
+            }
+           .nav>ul:after{
+			display: block;
+			content: "";
+			clear: both;            
+           }
+           .nav>ul>li{
+            background-color: #fff;
+            height: 225px;
+            width: 160px;
+            margin-right: 16px;
+            text-align: center;
+            padding-top: 10px;
+            float: left;
+           }
+           .nav>ul>li:last-child{
+           	margin-right: 0px;
+           }
+           .nav>ul>li>div>a>img{
+            border:1px solid #ededed;
+            border-radius: 30px;
+           }
+           .nav img{
+           	width: 128px;
+           	height: 128px;
+           }
+           .nav span{
+           	font-size: 14px;
+           	margin-top: 10px;
+           }
+           p{
+            color: #666666;
+            font-size:12px;
+            padding-top: 3px;
+           }
+          p.p{
+            line-height: 40px;
+            font-size: 16px;
+            color: black;
+          }
+          span{
+            margin-right: 14px;
+          }
+          small{
+          border: 2px solid #dddddd;
+          background-color: #ffffff;
+          }
+          /*往期专题*/
+          .box{
+            padding-top: 20px;
+	        }
+	        .in{
+	        width: 1040px;
+	        margin: 0 auto;
+	        padding-top: 10px;
+	        }
+	        .in>ul:after{
+	            display: block;
+	            content: "";
+	            clear: both;
+	        }
+	        .in>ul{
+	        	width: 1040px;
+	        }
+	        .in>ul>li{
+	            float: left;           
+	            margin-right: 10px;
+	            margin-top: 7px;
+	        }
+	        .in>ul>li:last-child{
+	            margin-right:0;
+	        }
+	         .in img{
+	         	width: 340px;
+	         	height: 130px;
+	         }
+	         /*recommend player*/
+	         .player{
+	         	width: 1040px;
+	         	margin:0 auto;
+	         	margin-top: 12px;
+	         }
+	         .player>ul{
+ 			 width: 1040px;
+	         }
+	         .player>ul:after{
+	         	display: block;
+	         	content: "";
+	         	clear: both;
+	         }
+	         .player>ul>li{
+	         	float: left;
+	         	width: 173px;
+	         	height: 180px;
+	         }
+	         .player img{
+	         	width: 128px;
+	         	height: 128px;
+	            margin:0px 20px 0px;
+	         }
+	         .player p{
+	         	text-align: center;
+	         	font-size: 16px;
+	         	font-weight: bold;
+	         }
+	         .player span{
+	         	margin-left: 50px;
+	         	display: inline-block;
+	         	margin-top: 10px;
+	         	color: #999999
+	         }
+	         /*查看更多*/
+	         .more{
+            width: 1040px;
+            margin:0 auto;
+            background-color: #ffffff;
+            margin-top: 20px;
+	        }
+	        .more>.serach{
+	            width: 980px;
+	            text-align: center;
+	        }
+	        .serach>a:hover{
+	            text-decoration: underline;
+	        }
+	        .serach>a{
+	            color: #14b9c8;
+	            line-height: 3em;
+	        }
+	        /*横向滚动*/
+	        .rowlling{
+	        	width: 1040px;
+	        	margin: 0 auto;
+	        	overflow-x: scroll;
+	        	margin-top: 23px;
+	        }
+	        .rowlling img{
+	        	width: 340px;
+	        	height: 164px;
+	        }
+	        .rowlling>ul:after{
+	        	display: block;
+	        	content: "";
+	        	clear: both;
+	        }
+	        .rowlling>ul{
+	        	width: 1740px;
+	        }
+			.rowlling>ul>li{
+				float: left;
+				width: 340px;
+				margin-right: 10px;
+			}
+			.rowlling>ul>li:last-child{
+				margin-right: 0;
+			}
+		</style>
+</head>
+<body>
+    <!-- 回顶部 -->
+    <div id="top"></div>
+    <!-- 回顶部结束 -->
+    <!-- 顶部 -->
+    <div class="top">
+        <!-- 容器1200px -->
+        <div class="wrapper">
+            <div class="taptap">
+                <a href="">
+                    <img src="./images/0-1.png" alt="">
+                </a>
+            </div>
+            <div class="app">
+                <a href="">
+                    <img src="./images/0-2.png" alt=""><br>
+                    APP
+                </a>
+            </div>
+            <div class="title"> 
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="../remen/hot.html">排行榜</a></li>
+                    <li><a href="#pctaptap.html">安利墙</a></li>
+                    <li><a href="#">发现</a></li>
+                    <li><a href="#">论坛</a></li>
+                    <li><a href="#">视频</a></li>
+                </ul>
+            </div>  
+            <div class="right">
+                <ul class="search">
+                    <li>
+                        <a href="">
+                            <img src="./images/0-4.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <input type="text" placeholder="搜索...">
+                        <!-- 选中搜索框，弹出提示框 -->
+                        <div class="tankuang">
+                            <ul>
+                                <li>热门搜索</li>
+                                <li><a href="">奥拉星</a></li>
+                                <li><a href="">王牌战士</a></li>
+                                <li><a href="">香肠派对</a></li>
+                                <li><a href="">闪耀暖暖</a></li>
+                                <li><a href="">王者荣耀</a></li>
+                            </ul>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="touxiang">
+                <img src="./images/0-3.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- 顶部位置提示栏 -->
+    <div class="note">
+        <ul>
+            <li>你的位置：</li>
+            <li><a href="">首页</a></li>
+        </ul>
+    </div>
+    <!-- 顶部结束 -->
+    <!-- 主体 -->
+    
+    
+        <!-- 宣传图 -->
+	       <div class="xct">
+		   <div class="inner">
+		   	<div class="one">
+		   		<img src="./image/differ_02.png" alt="">
+		   	</div>
+		   	<div class="two">
+		   		<img src="./image/657.png" alt="">
+		   	</div>
+		   	<div class="three">
+		   		<img src="./image/same.png" alt="">
+		   	</div>
+		    <div class="four">
+		    	<img src="./image/differ_02.png" alt="">
+		    </div>
+		   </div>
+	       </div>
+<!-- 列表栏目 -->
+		<ul class="list-colum">
+			<li>
+			<a href="">往期推荐</a>
+			</li>
+			<li>
+ 			<a href="">单击</a>
+			</li>
+			<li>
+			<a href="">角色扮演</a>
+			</li>
+			<li>
+			<a href="">动作</a>
+			</li>
+			<li>
+			<a href="">MOBA</a>
+			</li>
+			<li>
+			<a href="">策略</a>
+			</li>
+			<li>
+			<a href="">卡牌</a>
+			</li>
+			<li>
+			<a href="">生存</a>
+			</li>
+			<li>
+			<a href="">模拟</a>
+			</li>
+			<li>
+			<a href="">竞速</a>
+			</li>
+			<li>
+			<a href="">益智</a>
+			</li>
+			<li>
+			<a href="">二次元</a>
+			</li>
+		</ul>
+
+    
+		<!-- 每日新发现 -->
+		<div class="box">
+        <div class="found">
+        <div class="left">
+            <h2>每日新发现</h2>
+            <a href="">更多</a>
+        </div>
+    </div>
+</div>
+
+    
+
+	    <!-- 游戏图标 -->
+		<div class="nav">
+    <ul>
+        <li>
+            <div>
+              <a href=""><img src="./image/gg_03.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">疯狂投篮</p>
+            <p>
+            <span>角色扮演</span>
+            <span>8.6☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+             <a href=""><img src="./image/gg_05.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">元素之渊(测试..</p>
+            <p>
+            <span>休闲</span>
+            <span>7.8☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/gg_08.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">无尽大冒险</p>
+            <p>
+            <span>策略</span>
+            <span>7.8☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/gg_13.png" alt=""></a>
+            </div>
+            <div>
+             <p class="p">修复大师(测试..)</p>
+            <p>
+            <span>休闲</span>
+            <span>6.6☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/gg_10.png" alt=""></a>
+            </div>
+            <div>
+              <p class="p">乐高@无锡</p>
+            <p>
+            <span>益智</span>
+            <span>6.5☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/gg_16.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">妖怪道中级</p>
+            <p>
+            <span>休闲</span>
+            <span>6.8☆</span>
+            </p>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- 新游预约 -->
+        <div class="box">
+        <div class="found">
+        <div class="left">
+         <h2>新游预约</h2>
+         <a href="">更多</a>
+        </div>
+		    </div>
+		</div>
+	    <!-- 游戏图标 -->
+		<div class="nav">
+        <ul>
+        <li>
+            <div>
+              <a href=""><img src="./image/gg_03.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">疯狂投篮</p>
+            <p>
+            <span>角色扮演</span>
+            <span>8.6☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+             <a href=""><img src="./image/gg_05.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">元素之渊(测试..</p>
+            <p>
+            <span>休闲</span>
+            <span>7.8☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/gg_08.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">无尽大冒险</p>
+            <p>
+            <span>策略</span>
+            <span>7.8☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/gg_13.png" alt=""></a>
+            </div>
+            <div>
+             <p class="p">修复大师(测试..)</p>
+            <p>
+            <span>休闲</span>
+            <span>6.6☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/gg_10.png" alt=""></a>
+            </div>
+            <div>
+              <p class="p">乐高@无锡</p>
+            <p>
+            <span>益智</span>
+            <span>6.5☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/gg_16.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">妖怪道中级</p>
+            <p>
+            <span>休闲</span>
+            <span>6.8☆</span>
+            </p>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- 往期专题 -->
+		 <div class="box">
+        <div class="found">
+        <div class="left">
+         <h2>往期专题</h2>
+         <a href="">更多</a>
+        </div>
+		   </div>
+		</div>
+		<div class="in">
+		    <ul>
+		        <li>
+		        <a href=""><img src="./image/ggs_03.png" alt=""></a>
+		        </li>
+		        <li>
+		          <a href=""><img src="./image/ggs_08.png" alt=""></a>
+		        </li>
+		        <li>
+		         <a href=""><img src="./image/ggs_05.png" alt=""></a>
+		        </li>
+		    </ul>
+		</div>
+		<!-- recommend player -->
+		 <div class="box">
+        <div class="found">
+        <div class="left">
+         <h2>推荐玩家</h2>
+         <a href="">更多</a>
+        </div>
+		    </div>
+		</div>
+		<div class="player">
+			<ul>
+				<li>
+					<a href=""><img src="./image/gei_14.png" alt=""></a>
+					<p>赤脚大仙</p>
+					<span>TapTap玩家</span>
+				</li>
+				<li>
+					<a href=""><img src="./image/gei_17.png" alt=""></a>
+					<p>gamecores</p>
+					<span>机核网 官方账号</span>
+				</li>
+				<li>
+					<a href=""><img src="./image/gei_23.png" alt=""></a>
+					<p>浪里小白龙</p>
+					<span>TapTap玩家</span>
+				</li>
+				<li>
+					<a href=""><img src="./image/gei_25.png" alt=""></a>
+					<p>掰掰</p>
+					<span>TapTap玩家</span>
+				</li>
+				<li>
+					<a href=""><img src="./image/gei_28.png" alt=""></a>
+					<p>会飞的梦想</p>
+					<span>terobi独立游戏</span>
+				</li>
+				<li>
+					<a href=""><img src="./image/gei_20.png" alt=""></a>
+					<p>min艳艳丫</p>
+					<span>TapTap测试</span>
+				</li>
+			</ul>
+		</div>
+		<!-- 游戏测试 -->
+		 <div class="box">
+        <div class="found">
+        <div class="left">
+         <h2>游戏测试</h2>
+         <a href="">更多</a>
+        </div>
+		    </div>
+		</div>
+		<div class="nav">
+        <ul>
+        <li>
+            <div>
+              <a href=""><img src="./image/ob_03.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">疯狂投篮</p>
+            <p>
+            <span>角色扮演</span>
+            <span>8.6☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+             <a href=""><img src="./image/ob_06.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">元素之渊(测试..</p>
+            <p>
+            <span>休闲</span>
+            <span>7.8☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/ob_09.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">无尽大冒险</p>
+            <p>
+            <span>策略</span>
+            <span>7.8☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/ob_14.png" alt=""></a>
+            </div>
+            <div>
+             <p class="p">修复大师(测试..)</p>
+            <p>
+            <span>休闲</span>
+            <span>6.6☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/ob_17.png" alt=""></a>
+            </div>
+            <div>
+              <p class="p">乐高@无锡</p>
+            <p>
+            <span>益智</span>
+            <span>6.5☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/ob_25.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">妖怪道中级</p>
+            <p>
+            <span>休闲</span>
+            <span>6.8☆</span>
+            </p>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- 篝火计划 -->
+ <div class="box">
+        <div class="found">
+        <div class="left">
+         <h2><img src="./image/one_03.png" alt=""></h2>
+         <a href="">更多</a>
+        </div>
+		    </div>
+		</div>
+		<div class="nav">
+        <ul>
+        <li>
+            <div>
+              <a href=""><img src="./image/ob_27.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">疯狂投篮</p>
+            <p>
+            <span>角色扮演</span>
+            <span>8.6☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+             <a href=""><img src="./image/ob_29.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">元素之渊(测试..</p>
+            <p>
+            <span>休闲</span>
+            <span>7.8☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/ob_30.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">无尽大冒险</p>
+            <p>
+            <span>策略</span>
+            <span>7.8☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/ob_31.png" alt=""></a>
+            </div>
+            <div>
+             <p class="p">修复大师(测试..)</p>
+            <p>
+            <span>休闲</span>
+            <span>6.6☆</span>
+            </p>
+            </div>
+        </li> 
+         </ul>
+    </div>
+    <!-- 查看更多 -->
+    <div class="more">
+        <div class="serach">
+            <a href="">查看更多合辑</a>
+        </div>
+    </div>
+    <!-- 横向滚动 -->
+    <div class="rowlling">
+    	<ul>
+            <li>
+                <a href=""><img src="./image/ojb_06.png" alt=""></a>
+            </li>
+            <li>
+                  <a href=""><img src="./image/ojb_03.png" alt=""></a>
+            </li>
+            <li>
+                  <a href=""><img src="./image/ojb_09.png" alt=""></a>
+            </li>
+            <li>
+                 <a href=""><img src="./image/ojj_03.png" alt=""></a>
+            </li>
+            <li>
+                  <a href=""><img src="./image/ojj_06.png" alt=""></a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 底部 -->
+    <div class="bottom_1">
+        <div class="wrapper">
+            <!-- 底部左侧 -->
+            <div class="left_1">
+                <div class="one_1">
+                    <img src="./images/bottom.png" alt="">
+                    <ul class="one_1">
+                        <li>
+                            <a>中文（简体）</a>
+                        </li>
+                        <li>
+                            <img src="./images/xiaosanjiao.png" alt="">
+                            <!-- 语言弹框 -->
+                            <div class="language">
+                                <ul>
+                                    <li>选择语言</li>
+                                    <li><a href="">中文 (简体)</a></li>
+                                    <li><a href="">中文 (繁體)</a></li>
+                                    <li><a href="">English</a></li>
+                                    <li><a href="">日本語</a></li>
+                                    <li><a href="">한국어</a></li>
+                                </ul>
+                            </div>
+                            <!-- 语言弹框结束 -->
+                        </li>
+                        <li><a href="https://www.taptap.com/developer">开发者中心</a></li>
+                        <li><a href="https://www.taptap.com/ads">广告投放</a></li>
+                        <li><a href="https://www.taptap.com/about-us">关于我们</a></li>
+                        <li><a href="https://www.taptap.com/hr">加入我们</a></li>
+                        <li><a href="https://www.taptap.com/verify">用户认证</a></li>
+                    </ul>
+                </div>
+                <div class="two_1">
+                    <h4>
+                        Discover Superb Games.
+                    </h4>
+                </div>
+                <div class="three_1">
+                    <ul>
+                        <li>
+                            <a>Copyright © 2019</a>
+                        </li>
+                        <li>
+                            <a href="#首页">TapTap.</a>
+                        </li>
+                        <li>
+                            <a>All rights Reserved.</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <p>适龄提示: 本公司产品适合 10 周岁以上玩家使用</p>
+                        </li>
+                        <li>
+                            <a href="https://www.taptap.com/taptapjh">未成年人家长监护</a>
+                        </li>
+                        <li>
+                            <a href="https://www.taptap.com/privacy-policy">隐私权政策</a>
+                        </li>
+                        <li>
+                            <a href="https://www.taptap.com/copyright">侵权投诉</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <a href="http://www.beian.miit.gov.cn/state/outPortal/loginPortal.action;jsessionid=HU6d_gUuNTL_h2LIZ8wcdoMoWmWZsvZBk0ZSY-zogn2gliJBQYTK!1412419682">沪ICP备16012525号-1</a>
+                        </li>
+                        <li>
+                            <a href="https://www.taptap.com/license/www.html">沪网文(2016)2204-116号</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <p>经营许可证编号: 沪B2-20170322易玩（上海）网络科技有限公司</p>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <p>公司地址: 上海市静安区万荣路 700 号 A3 202</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="four_1">
+                    <ul>
+                        <li>
+                            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402003255">
+                                <img src="./images/hugongwang.png" alt="">
+                                沪公网安备 31010402003255号
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/35EE6340BAC97151E0530140A8C0E25A">
+                                <img src="./images/hulianwang.png" alt="">
+                                互联网文化经营单位
+                            </a>
+                        </li>
+                        <li>
+                            <div class="email">
+                                <img src="./images/email.png" alt="">
+                            </div>
+                            <div class="hanzi">
+                                <a href="http://www.shjbzx.cn/">上海市互联网<br>违法和不良<br>信息举报中心</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 底部左侧结束 -->
+            <!-- 底部右侧 -->
+            <div class="right_1">
+                <div class="one_1">
+                    <p>Contact Us</p>
+                </div>
+                <div class="two_1">
+                    <ul>
+                        <li>
+                            <div class="facebook">
+                                <a href="">
+                                <img src="./images/facebook.png" alt="">
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="weixin">
+                                <a href="">
+                                    <img src="./images/weixin.png" alt="">
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="qq">
+                                <a href="">
+                                    <img src="./images/qq.png" alt="">
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="zhihu">
+                                <a href="">
+                                    <img src="./images/zhihu.png" alt="">
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="weibo">
+                                <a href="">
+                                    <img src="./images/weibo.png" alt="">
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mailbox">
+                                <a href="">
+                                    <img src="./images/mailbox.png" alt="">
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="three_1">
+                    <p>官方活动</p>
+                </div>
+                <div class="four_1">
+                    <ul>
+                        <li><a href="https://www.taptap.com/events/3rd-anniversary">TapTap 三周年</a></li>
+                        <li><a href="https://www.taptap.com/campfire">篝火计划</a></li>
+                        <li><a href="https://www.taptap.com/events/3rd-anniversary/doodle">涂鸦大赛</a></li>
+                        <li><a href="https://www.taptap.com/game-awards2018">2018年度游戏大赏</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 底部右侧结束 -->
+        </div>
+    </div>
+    <!-- 底部结束 -->
+
+</body>
+</html>

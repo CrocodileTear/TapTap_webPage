@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伸缩盒布局</title>
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1328563_8v62xmgtn68.css">
+<style>
+    body{
+        margin: 0;
+        box-sizing: border-box;
+        background-color: #f2f2f2;
+    }
+    .box{
+        margin-top: 16px;
+    }
+    a:hover{
+     text-decoration: underline;
+    }
+    .nav>ul>li{
+        box-shadow: 0px 3px 0px #ededed;
+    }
+    /*顶部*/
+    .outer{
+        max-width: 800px;
+        flex-direction: row;
+            display: flex;
+        background-color: #14b9c8;
+        flex-wrap: nowrap;
+        margin: 0 auto;
+    }
+    .outer>div{
+        height: 50px;
+        width: 300px;
+        padding-top:25px;
+
+        
+    }
+    .outer>div>a>i{
+        font-size: 26px;
+        color: #fff;
+    }
+    .outer>div>i:last-child{
+        padding-right: 20px;
+    }
+    .outer>div:nth-child(1){
+        flex: 1;
+        flex-basis: 200px;
+        padding-left: 20px;
+
+    }
+    .outer>div:nth-child(2){
+flex: 2;
+flex-basis: 400px;
+text-align: center;
+    }
+    .outer>div:nth-child(3){
+flex: 1;
+flex-basis: 200px;
+text-align: right;
+    }
+    /*中间*/
+    .total{
+        max-width: 800px;
+        height: 100%;
+        margin: 0 auto;
+
+    }
+    /*图片*/
+.wrapper{
+    max-width: 800px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+ 
+}
+.inner{
+    width: 2500px;
+    height: 100%;
+        margin:0 auto;
+        animation: xpf 10s infinite;
+        position: absolute;
+        flex: 1;
+    }
+    .inner>div{
+        max-width: 800px;
+        display: inline-block;
+        height: 100%;
+
+
+
+    }
+@keyframes xpf{
+        0%{
+            left:0;
+        }
+        35%{
+            left: -800px;
+        }
+        70%{
+            left: -1600px;
+        }
+    }
+/*横向导航*/
+.row{
+    flex-basis: 800px;
+    background-color: #f2f2f2;
+    height: 60px;
+    margin-top: 10px;
+
+}
+.row>ul{
+  display: flex;
+  flex-direction: row;
+  om
+}
+.row>ul>li{
+flex: 1; 
+border-radius: 30px;
+background-color:#14b9c8; 
+line-height: 3em;
+margin: 10px;
+text-align: center;
+
+
+}
+.row>ul>li>a{
+    color: #fff;
+}
+/*中间发现*/
+ .box{
+    margin: 0 auto;
+  
+ }
+ .box>.found{
+    max-width: 800px;
+    height: 30px;
+    background-color: #f2f2f2;
+    margin: 0 auto;
+    border-bottom: 1px solid #dddddd;
+
+ }
+    .box>div{
+display: flex;  
+}
+   .left{
+    padding-left: 10px;
+    font-size: 18px;
+    line-height: 20px;
+    border-left: 4px solid #14b9c8;
+}
+    .right>a{
+     flex: 1;
+     padding-left: 630px;
+     line-height: 20px;
+     color: #14b9c8;
+    }
+/*游戏图标*/
+.nav{
+            
+            padding: 1em 0;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f2f2f2;
+        
+        }
+           .nav>ul{
+            display: flex;
+           }
+           .nav>ul>li{
+             flex:1;
+             background-color: #fff;
+             height: 166px;
+                    margin-right: 10px;
+            text-align: center;
+             padding-top: 10px;
+           }
+           .nav>ul>li>div>a>img{
+        border:1px solid #ededed;
+            border-radius: 30px;
+           }
+           p{
+            color: #666666;
+            font-size:12px;
+            padding-top: 3px;
+           }
+          p.p{
+            padding-top:5px;
+            font-size: 16px;
+            color: black;
+          }
+          span{
+            margin-right: 14px;
+          }
+          small{
+          border: 2px solid #dddddd;
+          background-color: #ffffff;
+          }
+/*previous topic*/
+.box{
+    padding-top: 20px;
+}
+.in{
+        max-width: 800px;
+        margin: 0 auto;
+        padding-top: 10px;
+    }
+    .in>ul{
+        display: flex;
+    }
+    .in>ul>li{
+        flex:1;
+        margin-top: 7px;
+    }
+    .in>ul>li:nth-child(3){
+        border-right: 0;
+    }
+    /*player*/
+    .recommend{
+        max-width: 800px;
+        margin: 0 auto;
+        padding-top: 10px;
+    }
+    .recommend>ul{
+      display: flex;
+    }
+     .recommend>ul.play>li{
+         text-align: center;
+        flex:1;
+        margin-top: 10px;
+
+     }
+     .recommend>ul>li>div>a>img{
+          border:1px solid #ededed;
+        border-radius: 50%;
+    }
+    .recommend>ul.play>li:first-child{
+        margin-left: 10px;
+    }
+    .box{
+        margin-top: 5px;
+    }
+    /*查看更多*/
+    .more{
+        max-width: 800px;
+        margin:0 auto;
+        display: flex;
+        background-color: #ffffff;
+    }
+    .more>.serach{
+        max-width: 780px;
+        flex:1;
+        text-align: center;
+    }
+    .serach>a:hover{
+        text-decoration: underline;
+    }
+    .serach>a{
+        color: #14b9c8;
+        line-height: 3em;
+    }
+    /*滚动*/
+    .final{
+        max-width: 800px;
+        margin:0 auto;
+        overflow-x: scroll;
+        margin-top: 10px;
+    }
+    .final>ul:after{
+        max-width: 800px;
+      display: block;
+      content: "";
+      clear: both;
+    }
+    .final>ul{
+     width: 1350px;
+    }
+    .final>ul>li{
+      max-width: 260px;
+      float: left;
+      margin-right: 10px;
+    }
+     .final>ul>li:last-child{
+        margin-right: 0;
+     }
+</style>
+
+
+</head>
+<body>
+    <div class="outer">
+        <div>
+         <a href=""><i class="iconfont icon-icon"></i></a>
+        </div>
+        <div>
+           <a href=""><i class="iconfont icon-TapTap"></i></a>
+        </div>
+        <div>
+            <a href=""><i class="iconfont icon-ht_search"></i></a>
+        </div>
+    </div>
+<!-- 图片 -->
+<div class="total">
+      <div class="wrapper">
+        <div class="inner">
+            <div class="one">
+           <img src="./image/taptap5.png" alt="">
+            </div>
+            <div class="two">
+                <img src="./image/taptap6.png" alt="">
+            </div>
+            <div class="three">
+                <img src="./image/taptap7.png" alt="">
+            </div>
+        </div>
+        </div>
+   
+ <!-- 横向导航 -->
+<div class="row">
+    <ul>
+        <li><a href="">往期推荐</a></li>
+        <li><a href="">单击</a></li>
+        <li><a href="">角色扮演</a></li>
+        <li><a href="">动作</a></li>
+        <li><a href="">往期推荐</a></li>
+        <li><a href="">单击</a></li>
+        <li><a href="">角色扮演</a></li>
+        <li><a href="">动作</a></li>
+            <li><a href="">单击</a></li>
+        <li><a href="">角色扮演</a></li>
+        <li><a href="">动作</a></li>
+    </ul>
+</div>
+</div>
+<!-- 每日新发现 -->
+<div class="box">
+    <div class="found">
+        <div class="left">
+            <h3>每日新发现</h3>
+        </div>
+        <div class="right">
+            <a href="">更多</a>
+        </div>
+    </div>
+</div>
+<!-- 游戏图标 -->
+<div class="nav">
+    <ul>
+        <li>
+            <div>
+              <a href=""><img src="./image/taptap_03.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">疯狂投篮</p>
+            <p>
+            <span>角色扮演</span>
+            <span>8.6☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+             <a href=""><img src="./image/taptap_06.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">元素之渊(测试..</p>
+            <p>
+            <span>休闲</span>
+            <span>7.8☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/taptap_09.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">无尽大冒险</p>
+            <p>
+            <span>策略</span>
+            <span>7.8☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/taptap_11.png" alt=""></a>
+            </div>
+            <div>
+             <p class="p">修复大师(测试..)</p>
+            <p>
+            <span>休闲</span>
+            <span>6.6☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""> <img src="./image/taptap_14.png" alt=""></a>
+            </div>
+            <div>
+              <p class="p">乐高@无锡</p>
+            <p>
+            <span>益智</span>
+            <span>6.5☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/taptap_17.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">妖怪道中级</p>
+            <p>
+            <span>休闲</span>
+            <span>6.8☆</span>
+            </p>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- 游戏列表下一行 -->
+<div class="box">
+    <div class="found">
+        <div class="left">
+            <h3>新游预约</h3>
+        </div>
+        <div class="right">
+            <a href="">更多</a>
+        </div>
+    </div>
+</div>
+<div class="nav">
+    <ul>
+        <li>
+            <div>
+              <a href=""><img src="./image/taptap_26.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">路人超能10..
+             <small>CN</small>
+            </p>
+            <p>
+            <span>卡牌</span>
+            <span>8.6☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+             <a href=""><img src="./image/taptap_28.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">喵咪斗恶龙
+             <small>CN</small>
+            </p>
+            <p>
+            <span>冒险</span>
+            <span>9.1☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/taptap_29.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">奥拉星</p>
+            <p>
+            <span>冒险</span>
+            <span>7.8☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/taptap_30.png" alt=""></a>
+            </div>
+            <div>
+             <p class="p">迷失之野</p>
+            <p>
+            <span>休闲</span>
+            <span>6.6☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""> <img src="./image/taptap_32.png" alt=""></a>
+            </div>
+            <div>
+              <p class="p">王牌战士</p>
+            <p>
+            <span>动作</span>
+            <span>6.5☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/taptap_34.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">狂野飙车
+            <small>CN</small>
+            </p>
+            <p>
+            <span>竞速</span>
+            <span>6.8☆</span>
+            </p>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- previous topic -->
+<div class="box">
+    <div class="found">
+        <div class="left">
+            <h3>往期专题</h3>
+        </div>
+        <div class="right">
+            <a href="">更多</a>
+        </div>
+    </div>
+</div>
+<div class="in">
+    <ul>
+        <li>
+        <div><img src="./image/tapt_03.png" alt=""></div>
+        </li>
+        <li>
+          <div><img src="./image/tapt_06.png" alt=""></div>
+        </li>
+        <li>
+         <div><img src="./image/tapt_09.png" alt=""></div>
+        </li>
+    </ul>
+</div>
+<!-- recommend player -->
+<div class="box">
+    <div class="found">
+        <div class="left">
+            <h3>推荐玩家</h3>
+        </div>
+        <div class="right">
+            <a href="">更多</a>
+        </div>
+    </div>
+</div>
+<div class="recommend">
+    <ul class="play">
+        <li>
+            <div>
+              <a href=""><img src="./image/tapp_03.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">乌拉拉</p>
+            <p>
+            <span>TapTap完善家</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+               <a href=""><img src="./image/tapp_06.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">lafeio</p>
+            <p>
+            <span>《军团战旗》开发者</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+              <a href=""><img src="./image/tapp_09.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">在下无名</p>
+            <p>
+            <span>套鲁工作室制作人</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+            <a href=""><img src="./image/tapp_17.png" alt=""></a>
+            </div>
+            <div>
+             <p class="p">gx</p>
+            <p>
+            <span>《chopin》开发者</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+              <a href=""><img src="./image/tapp_14.png" alt=""></a>
+            </div>
+            <div>
+              <p class="p">Amadeus柯南</p>
+            <p>
+            <span>TapTap玩赏家</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+              <a href=""><img src="./image/tapp_11.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">金色传说
+            </p>
+            <p>
+            <span>TapTap玩赏家</span>
+            </p>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- 游戏测试 -->
+<div class="box">
+    <div class="found">
+        <div class="left">
+            <h3>游戏测试</h3>
+        </div>
+        <div class="right">
+            <a href="">更多</a>
+        </div>
+    </div>
+</div>
+<div class="nav">
+    <ul>
+        <li>
+            <div>
+              <a href=""><img src="./image/tapa_03.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">武侠（测试服）
+            </p>
+            <p>
+            <span>动作</span>
+            <span>8.6☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+               <a href=""><img src="./image/tapa_06.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">熊孩子是不可能..
+            </p>
+            <p>
+            <span>休闲</span>
+            <span>9.1☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+              <a href=""><img src="./image/tapa_09.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">星梦芭蕾(测试..</p>
+            <p>
+            <span>冒险</span>
+            <span>7.8☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+              <a href=""><img src="./image/tapa_12.png" alt=""></a>
+            </div>
+            <div>
+             <p class="p">快跑大冒险 (测..</p>
+            <p>
+            <span>休闲</span>
+            <span>6.6☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+              <a href=""><img src="./image/tapa_15.png" alt=""></a>
+            </div>
+            <div>
+              <p class="p">修复大师 (测试..</p>
+            <p>
+            <span>动作</span>
+            <span>6.5☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+              <a href=""><img src="./image/tapa_18.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">大唐修仙路
+            </p>
+            <p>
+            <span>文字</span>
+            <span>6.8☆</span>
+            </p>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- 篝火 -->
+<div class="box">
+    <div class="found">
+        <div class="left">
+            <h3><img src="./image/gouhuo_03.png" alt=""></h3>
+        </div>
+    </div>
+</div>
+<div class="nav">
+    <ul>
+        <li>
+            <div>
+              <a href=""><img src="./image/tapa_03.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">武侠（测试服）
+             <small>CN</small>
+            </p>
+            <p>
+            <span>动作</span>
+            <span>8.6☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+               <a href=""><img src="./image/tapa_06.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">熊孩子是不可能..
+             <small>CN</small>
+            </p>
+            <p>
+            <span>休闲</span>
+            <span>9.1☆</span>
+            </p>
+            </div>
+        </li>
+        <li>
+            <div>
+              <a href=""><img src="./image/tapa_09.png" alt=""></a>
+            </div>
+            <div>
+            <p class="p">星梦芭蕾(测试..</p>
+            <p>
+            <span>冒险</span>
+            <span>7.8☆</span>
+            </p>
+            </div>
+        </li>
+        </ul>
+        </div>
+        <!-- 查看更多 -->
+        <div class="more">
+            <div class="serach">
+                <a href="">查看更多合辑</a>
+            </div>
+        </div>
+        <!-- 滚动 -->
+        <div class="final">
+            <ul>
+                <li>
+                    <img src="./image/oko_02.png" alt="">
+                </li>
+                <li>
+                      <img src="./image/oko_03.png" alt="">
+                </li>
+                <li>
+                      <img src="./image/oko_04.png" alt="">
+                </li>
+                <li>
+                      <img src="./image/oko_06.png" alt="">
+                </li>
+                <li>
+                      <img src="./image/oko_09.png" alt="">
+                </li>
+            </ul>
+        </div>
+</body>
+</html>

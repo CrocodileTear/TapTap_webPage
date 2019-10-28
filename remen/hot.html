@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Android 游戏榜 >> 热门榜</title>
+	<style>
+		body {
+			margin: 0;
+			background-color: #f2f2f2;
+		}
+		ul,p {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+			color: #333;
+		}
+		.wrapper {
+			width: 1200px;
+			margin: 0 auto;
+		}
+		.top {
+			background-color: #14b9c8;
+			width: 100%;
+			height: 80px;
+		}
+		.top a {
+			color: #fff;
+		}
+		/*图标*/
+		.top .wrapper .taptap img {
+			width:130px;
+			height: 40px;
+			float: left;
+			margin: 20px 10px 20px 80px;
+		}
+		.top .app {
+			float: left;
+			margin: 20px 10px;
+		}
+		.top .app a {
+			font-size: 10px;
+		}
+		.top .app img {
+			width: 20px;
+			height: 18px;
+		}
+		/*标题*/
+		.top .title {
+			float: left;
+		}
+		.top .title > ul > li  {
+			width: 90px;
+			text-align: center;
+			line-height: 5em;
+			font-size: 16px;
+			color: #fff;
+			float: left;
+		}
+		.top .title li:hover {
+			background-color: #34c3d2;
+		}
+		.top .title li:active {
+			background-color: #12a7b4;
+		}
+		/*搜索*/
+		.top .right {
+			float: left;
+			height: 30px;
+			width: 180px;
+			background-color: #b4ebfa;
+			border-top-left-radius: 1.5em;
+			border-top-right-radius: 1.5em;
+			border-bottom-left-radius: 1.5em;
+			border-bottom-right-radius: 1.5em;
+			margin: 25px auto;
+			margin-left: 30px;
+		}
+		/*搜索符号*/
+		.top .right .search img {
+			width: 20px;
+			height: 20px;
+			margin-left: 10px;
+			margin-top: 5px;
+			float: left;
+		}
+		/*搜索输入框*/
+		.top .right .search input {
+			margin-top: 6px;
+			background-color: #b4ebfa;
+			color: #14b9c8;
+			border: none;
+		}
+		/*选中搜索框，弹出提示框*/
+		.top .right .search li:hover > .tankuang {
+			display: block;
+		}
+		.top .right .search .tankuang {
+			width: 250px;
+			height: 195px;
+			background-color: #fff;
+			margin-top: 10px;
+			box-sizing: border-box;
+			border-radius: 5px;
+			box-shadow: 0 0 15px #ccc;
+			display: none;
+		}
+		.top .right .search .tankuang li {
+			padding: 5px;
+			font-size: 14px;
+			padding: 7px;
+		}
+		.top .right .search .tankuang li a {
+			color: #333;
+		}
+		.top .right .search .tankuang li:hover {
+			background-color: #b4ebfa;
+		}
+		.top .right .search .tankuang li:first-child {
+			background-color: #fafafa;
+			font-size: 12px;
+			color: #ccc;
+		}
+		.top .touxiang img {
+			width: 50px;
+			height: 50px;
+			float: right;
+			margin-right: 60px;
+			margin-top: 15px;
+		}
+		/*顶部位置提示栏*/
+		.note {
+			width: 100%;
+			height: 30px;
+			background-color: #fff;
+			border-bottom: #ccc;
+			box-shadow: 0 0 3px #ccc;
+		}
+		.note a {
+			color: #666;
+		}
+		.note a:hover {
+			text-decoration: underline;
+		}
+		.note ul {
+			float: left;
+			margin-left: 150px;
+			margin-top: 5px;
+		}
+		.note ul li {
+			font-size: 12px;
+			color: #666;
+			display: inline-block;
+			padding-left: 5px;
+		}
+		/*排行榜大图标*/
+		.icon {
+			margin-top: 15px;
+			text-align: center;
+		}
+		.tip {
+			margin-left: 560px; 
+		}
+		.tip li {
+			font-size: 18px;
+			display: inline-block;
+			margin-right: 50px;
+			padding-bottom: 5px;
+		}
+		.tip li:last-child {
+			margin-right: 0;
+		}
+		/*榜单*/
+		.bangdan .wrapper {
+			text-align: center;
+			width: 1040px;
+			border-top: 1px solid #ccc;
+			margin-bottom: 60px;
+		}
+		.bangdan ul li::after {
+			display: block;
+			content: "";
+			clear: both;
+		}
+		.bangdan ul li {
+			font-weight: 400;
+			padding-top: 20px;
+			float: left;
+			padding-right: 5px;
+		}
+		.bangdan img {
+			width: 16px;
+			height: 16px;
+			padding-top: 5px;
+		}
+		/*回顶部*/
+		.toTop {
+			position: sticky;
+			top: 550px;
+			width: 50px;
+			height: 50px;
+			border-radius: 5px;
+			background-color: #fff;
+			float: right;
+			margin-right: 40px;
+		}
+		.toTop img {
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			margin: 10px;
+		}
+		.toTop .before img {
+			z-index: 1;
+		}
+		.toTop:hover {
+			background-color: #14b9c8;
+		}
+		.toTop:hover .before{
+			visibility: hidden;
+		}
+		/*游戏*/
+		.games {
+			width: 1040px;
+			height: 280px;
+			background-color: #fff;
+			margin: 0 auto;
+			margin-bottom: 15px;
+			box-shadow: 0 0 5px #ccc;
+		}
+		.games .triangle img {
+			width: 50px;
+			height: 50px;
+			margin: -4px;
+			float: left;
+			position: relative;
+		}
+		.games .triangle > p {
+			color: #fff;
+			font-size: 22px;
+			font-weight: 800;
+			position: absolute;
+			margin: 0 5px;
+		}
+		.games .icon::after {
+			display: block;
+			content: "";
+			clear: both;
+		}
+		.games .icon {
+			width: 160px;
+			height: 160px;
+			margin-left: -20px;
+			margin-top: 30px;
+			float: left;
+		}
+		.games .content {
+			width: 380px;
+			height: 225px;
+			margin-top: 30px;
+			margin-left: 20px;
+			float: left;
+		}
+		.games .content li:nth-child(1) > a {
+			font-size: 24px;
+			color: #333;
+		}
+		.games .content li:nth-child(2) > a {
+			color: #999999;
+			font-size: 14px;
+			padding-bottom: 10px;
+		}
+		.games li a:hover {
+			text-decoration: underline;
+		}
+		.games .content .wujiaoxing::after {
+			display: block;
+			content: "";
+			clear: both;
+		}
+		.games .content .wujiaoxing img {
+			width: 30px;
+			height: 30px;
+			margin: 0 -8px;
+			float: left;
+		}
+		.games .content .wujiaoxing p {
+			padding-top: 7px;
+		}
+		.games .content li:last-child {
+			height: 25px;
+			width: 380px;
+			margin-top: 50px;
+		}
+		.games .content .label a {
+			font-size: 12px;
+			color: #14b9c8;
+			border: 1px solid #14b9c8;
+			border-top-left-radius: 1.5em;
+			border-top-right-radius: 1.5em;
+			border-bottom-left-radius: 1.5em;
+			border-bottom-right-radius: 1.5em;
+			padding: 5px 10px;
+			margin-right: 10px;
+			float: left;
+		}
+		.games .content .label > a:hover {
+			background-color: #b4ebfa;
+			text-decoration: none;
+		}
+		.games .content .action > a {
+			border: 0;
+			float: right;
+		}
+		.games .content .action > a:hover {
+			text-decoration: underline;
+		}
+		/*游戏右侧图片*/
+		.games .pic {
+			float: right;
+			width: 430px;
+			height: 240px;
+			margin-top: 20px;
+			margin-right: 20px;
+		}
+		/*更多*/
+		.more {
+			text-align: center;
+			margin-top: 40px;
+			margin-bottom: 60px;
+		}
+		.more > ul > li > a{
+			font-size: 18px;
+			padding: 14px 27px;
+			background-color: #12a7b4;
+			border-radius: 5%;
+			color: #fff;
+		}
+		.more > ul > li > a:hover {
+			background-color: #b4ebfa;
+			color: #14b9c8;
+		}
+		.more li:hover > .moregames > .games {
+			display: block;
+		}
+		/*更多隐藏游戏*/
+		.moregames > .games{
+			display: none;
+		}
+		.bottom {
+			bottom: 0;
+			background-color: #666666;
+			width: 100%;
+			height: 280px;
+			font-weight: 200;
+			text-align: center;
+		}
+		.bottom a,p {
+			color: #999999;
+		}
+		.bottom .wrapper {
+			width: 1040px;
+			padding: 30px 35px 0;
+		}
+		.bottom .wrapper .left {
+			width: 515px;
+			margin-right: 200px;
+			float: left;
+		}
+		.bottom .left .one {
+			height: 45px;
+		}
+		.bottom .left .one img {
+			margin-right: 10px;
+			width:120px;
+			height: 35px;
+			float: left;
+		}
+		.bottom .left .one > li > a {
+			font-size: 12px;
+			float: left;
+			margin-top: 20px;
+			margin-right: 8px;
+		}
+		.bottom .left .one > li > p {
+			font-size: 12px;
+			margin-top: 20px;
+			margin-right: -10px;
+			float: left;
+		}
+		.bottom .left li:hover > a {
+			text-decoration: underline;
+		}
+		/*语言选择框下拉小三角*/
+		.bottom .left .one > li > img {
+			width: 15px;
+			height: 15px;
+			margin-top: 23px ;
+			position: relative;
+		}
+		/*语言选项弹框*/
+		.bottom .left .one > li:hover > .language {
+			display: block;
+		}
+		.language {
+			float: left;
+			position: absolute;
+			width: 150px;
+			height: 200px;
+			background-color: #fff;
+			box-sizing: border-box;
+			border-radius: 5px;
+			margin-left: 125px;
+			margin-top: -180px;
+			display: none;
+		}
+		.language li {
+			padding: 10px;
+			font-size: 14px;
+			padding-top: 5px;
+		}
+		.language li a {
+			color: #333;
+		}
+		.language li:hover {
+			background-color: #f5f5f5;
+		}
+		.language li:first-child {
+			font-weight: 800;
+			color: #ccc;
+			background-color: #fff;
+		}
+		.bottom .left .two {
+			font-size: 26px;
+			margin-left: -255px;
+			margin-top: 5px;
+			margin-bottom: 20px;
+		}
+		.bottom .left .three {
+			float: left;
+			height: 95px;
+			margin-bottom: 8px;
+		}
+		.bottom .left .three > ul > li {
+			float: left;
+			font-size: 12px;
+			margin-right: 10px;
+			margin-top: 3px;
+		}
+		.bottom .left .four {
+			height: 35px;
+		}
+		.bottom .left .four > ul > li {
+			float: left;
+			padding-right: 10px;
+			font-size: 12px;
+		}
+		.bottom .left .four > ul > li > a {
+			text-decoration: none;
+		}
+		.bottom .left .four > ul > li > a > img {
+			margin-bottom: -5px;
+		}
+		.bottom .left .four > ul > li:nth-child(2) {
+			margin-top: 3px;
+		}
+		.bottom .left .four .email {
+			margin-top: -10px;
+			float: left;
+		}
+		.bottom .left .four .hanzi {
+			font-size: 6px;
+			text-align: center;
+			height: 10px;
+			width: 80px;
+		}
+		.bottom .left .four .hanzi a {
+			color: #fff;
+		}
+		/*底部右侧*/
+		.bottom .right {
+			float: right;
+			width: 320px;
+		}
+		.bottom .right p {
+			margin-left: -250px;
+			margin-bottom: 20px;
+		}
+		.bottom .right .two img {
+			float: left;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			margin-right: 13px;
+			margin-bottom: 20px;
+		}
+		.bottom .right .two .facebook img {
+			background-color: #2d4485;
+		}
+		.bottom .right .two .weixin img {
+			background-color: #54be36;
+		}
+		.bottom .right .two .qq img {
+			background-color: #2c5c8f;
+		}
+		.bottom .right .two .zhihu img {
+			background-color: #0f7dfd;
+		}
+		.bottom .right .two .weibo img {
+			background-color: #ff0014;
+		}
+		.bottom .right .two .mailbox img {
+			background-color: #1998a5;
+		}
+		.bottom .right .three {
+			font-size: 12px;
+			margin-left: -20px;
+		}
+		.bottom .right .four ul li {
+			float: left;
+			font-size: 12px;
+			padding-right: 10px; 
+		}
+		.bottom .right .four ul li:hover a {
+			text-decoration: underline;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- 回顶部 -->
+	<div id="top"></div>
+	<!-- 回顶部结束 -->
+	<!-- 顶部 -->
+	<div class="top">
+		<!-- 容器1200px -->
+		<div class="wrapper">
+			<div class="taptap">
+				<a href="">
+					<img src="./images/0-1.png" alt="">
+				</a>
+			</div>
+			<div class="app">
+				<a href="">
+					<img src="./images/0-2.png" alt=""><br>
+					APP
+				</a>
+			</div>
+			<div class="title"> 
+				<ul>
+					<li><a href="../homePage/index.html">首页</a></li>
+					<li><a href="#ranking">排行榜</a></li>
+					<li><a href="#pctaptap.html">安利墙</a></li>
+					<li><a href="#">发现</a></li>
+					<li><a href="#">论坛</a></li>
+					<li><a href="#">视频</a></li>
+				</ul>
+			</div>	
+			<div class="right">
+				<ul class="search">
+					<li>
+						<a href="">
+							<img src="./images/0-4.png" alt="">
+						</a>
+					</li>
+					<li>
+						<input type="text" placeholder="搜索...">
+						<!-- 选中搜索框，弹出提示框 -->
+						<div class="tankuang">
+							<ul>
+								<li>热门搜索</li>
+								<li><a href="">奥拉星</a></li>
+								<li><a href="">王牌战士</a></li>
+								<li><a href="">香肠派对</a></li>
+								<li><a href="">闪耀暖暖</a></li>
+								<li><a href="">王者荣耀</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="touxiang">
+				<img src="./images/0-3.png" alt="">
+			</div>
+		</div>
+	</div>
+	<!-- 顶部位置提示栏 -->
+	<div class="note">
+		<ul>
+			<li>你的位置：</li>
+			<li><a href="">首页</a></li>
+			<li> >> </li>
+			<li>Android 游戏榜 </li>
+			<li> >> </li>
+			<li>热门榜</li>
+		</ul>
+	</div>
+	<!-- 顶部结束 -->
+	<!-- 主体 -->
+	<!-- 排行榜大图标 -->
+	<div class="icon">
+		<img src="./images/1-1.png" alt="">
+	</div>
+	<div class="tip">
+		<ul>
+			<li><a href="">Android 游戏榜</a></li>
+			<li><a href="../changshang/changshangbang.html">厂商榜</a></li>
+		</ul>
+	</div>
+	<!-- 榜单 -->
+	<div class="bangdan">
+		<div class="wrapper">
+			<ul>
+				<li>
+					<a href="">热门榜</a>
+				</li>
+				<li>
+					<img src="./images/1-2.png" alt="">
+				</li>
+				<li>
+					<a href="">新品榜</a>
+				</li>
+				<li>
+					<img src="./images/1-2.png" alt="">
+				</li>
+				<li>
+					<a href="">预约榜</a>
+				</li>
+				<li>
+					<img src="./images/1-2.png" alt="">
+				</li>
+				<li>
+					<a href="">热门榜</a>
+				</li>
+				<li>
+					<img src="./images/1-2.png" alt="">
+				</li>
+				<li>
+					<a href="">热玩榜</a>
+				</li>
+			</ul>
+		</div>	
+	</div>
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/yellowtriangle.png" alt="">
+			<p>1</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/1.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">王牌战士</a>
+				</li>
+				<li>
+					<a href="">厂商：腾讯</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<p>8.1</p>
+					</div>
+				</li>
+				<li>《王牌战士》是一款多角色射击手游。 多角色漫画风，延续经典枪战游戏“突突突”的畅快感，局内切换选手角色，酷炫战斗技能玩转指尖！ 多角色多技能...</li>
+				<li>
+					<div class="label">
+						<a href="">FPS</a>
+						<a href="">MOBA+FPS</a>
+						<a href="">射击</a>
+						<div class="action">
+							<a href="">动作</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/2.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/yellowtriangle.png" alt="">
+			<p>2</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/3.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">奇葩战斗家</a>
+				</li>
+				<li>
+					<a href="">厂商：雷霆游戏</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<p>9.0</p>
+					</div>
+				</li>
+				<li>这是一款奇葩乱斗轻竞技手游，一局5分钟，团队互殴爆笑battle，拿人头是第一准则。 战斗武器不寻常，满足你孩童时期最狂野的想象。 打人的“自拍杆”...</li>
+				<li>
+					<div class="label">
+						<a href="">联机</a>
+						<a href="">多人战斗</a>
+						<a href="">io</a>
+						<div class="action">
+							<a href="">动作</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/4.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/yellowtriangle.png" alt="">
+			<p>3</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/5.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">香肠派对</a>
+				</li>
+				<li>
+					<a href="">厂商：厦门真有趣信息科技有限公司</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<p>7.6</p>
+					</div>
+				</li>
+				<li>肠友们！各就各位，皮皮马戏团赛季开启，让我们皮爆全场(๑•̀ㅂ•́)و✧ 1. 季票系统，福利多多，多玩多得，各类马戏团主题的道具等您来拿； 2. 一切为了...</li>
+				<li>
+					<div class="label">
+						<a href="">射击</a>
+						<a href="">多人</a>
+						<a href="">吃鸡</a>
+						<div class="action">
+							<a href="">动作</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/6.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 回顶部 -->
+	<div class="toTop">
+		<div class="before">
+			<a href="#top">
+				<img src="./images/bluetop.png" alt="">
+			</a>
+		</div>
+		<div class="after">
+			<a href="#top">
+				<img src="./images/whitetop.png" alt="">
+			</a>
+		</div>
+	</div>
+	<!-- 回顶部结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/bluetriangle.png" alt="">
+			<p>4</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/7.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">致命框架2</a>
+				</li>
+				<li>
+					<a href="">厂商：深圳市创梦天地科技有限公司</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<p>7.6</p>
+					</div>
+				</li>
+				<li>《致命框架》是一款极具创意的解谜游戏，游戏中玩家将会见到多个方格连环画，每个方格都是一段独立的小动画，玩家发挥想象力将这些方格动画的内容自...</li>
+				<li>
+					<div class="label">
+						<a href="">解谜</a>
+						<a href="">单机</a>
+						<a href="">付费</a>
+						<div class="action">
+							<a href="">角色扮演</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/8.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/bluetriangle.png" alt="">
+			<p>5</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/9.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">迷失之夜</a>
+				</li>
+				<li>
+					<a href="">厂商：厦门真有趣信息科技有限公司</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<p>8.5</p>
+					</div>
+				</li>
+				<li>一本厚重的童话正在被你翻开，你需要亲自驱散迷雾。在繁星卡组之间找到生存的道路，这里有扭曲的建筑，神秘莫测的商人，可靠的伙伴，温暖的营火...</li>
+				<li>
+					<div class="label">
+						<a href="">Roguelike</a>
+						<a href="">卡牌</a>
+						<a href="">策略</a>
+						<div class="action">
+							<a href="">动作</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/10.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/bluetriangle.png" alt="">
+			<p>6</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/11.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">神角技巧（测试服）</a>
+				</li>
+				<li>
+					<a href="">厂商：谷德游戏</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<p>8.3</p>
+					</div>
+				</li>
+				<li>《科学的电磁炮》作者镰池和马最新力作！ 传说中的神角技巧，拥有足以毁灭国家的力量... 名为雅的少年获得了神角技巧的力量，担负起守护世界的责任... ...</li>
+				<li>
+					<div class="label">
+						<a href="">沙盒</a>
+						<a href="">开放世界</a>
+						<a href="">高自由度</a>
+						<div class="action">
+							<a href="">角色扮演</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/12.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/bluetriangle.png" alt="">
+			<p>7</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/13.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">我的世界</a>
+				</li>
+				<li>
+					<a href="">厂商：网易游戏</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<p>7.0</p>
+					</div>
+				</li>
+				<li>网易游戏代理的《我的世界》（Minecraft）手游，你想玩的，这里都有！ 全新村庄更新重磅上线，焕然一新的村庄和村民，特色“袭击”玩法开启村庄保卫战...</li>
+				<li>
+					<div class="label">
+						<a href="">联机</a>
+						<a href="">多人</a>
+						<a href="">开放世界</a>
+						<div class="action">
+							<a href="">休闲</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/14.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/bluetriangle.png" alt="">
+			<p>8</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/15.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">和平精英</a>
+				</li>
+				<li>
+					<a href="">厂商：腾讯</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<p>6.9</p>
+					</div>
+				</li>
+				<li>《和平精英》是腾讯光子工作室群自研打造的反恐军事竞赛体验手游。虚幻引擎4研发，次世代完美画质；超大实景地图，全方面自由施展战术；百人同场竞技...</li>
+				<li>
+					<div class="label">
+						<a href="">多人联机</a>
+						<a href="">射击</a>
+						<a href="">第一人称射击</a>
+						<div class="action">
+							<a href="">角色扮演</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/16.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/bluetriangle.png" alt="">
+			<p>9</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/17.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">偶像超音速</a>
+				</li>
+				<li>
+					<a href="">厂商：Boltrend</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<p>7.0</p>
+					</div>
+				</li>
+				<li>超人气音游《偶像超音速》携国风少女团队闪亮来袭！ 包含DJMAX海量正版曲库的偶像养成音乐手游，更新增国风少女团队“七朵”组合人气单曲！ 同时...</li>
+				<li>
+					<div class="label">
+						<a href="">音游</a>
+						<a href="">养成</a>
+						<a href="">美少女</a>
+						<div class="action">
+							<a href="">音乐</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/18.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/bluetriangle.png" alt="">
+			<p>10</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/19.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">元气骑士</a>
+				</li>
+				<li>
+					<a href="">厂商：凉屋游戏</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<p>9.8</p>
+					</div>
+				</li>
+				<li>“ 世界危在旦夕，时间处于剑与魔法的时代，维持世界平衡的魔法石被拥有高科技的外星生物夺走了，你能否夺回魔法石拯救这个世界？” 故事我们实在编不...</li>
+				<li>
+					<div class="label">
+						<a href="">Roguelike</a>
+						<a href="">地牢</a>
+						<a href="">局域网联机</a>
+						<div class="action">
+							<a href="">动作</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/20.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/bluetriangle.png" alt="">
+			<p>11</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/21.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">我在7年后等着你</a>
+				</li>
+				<li>
+					<a href="">厂商：扑家工作室</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<p>9.9</p>
+					</div>
+				</li>
+				<li>7年前，我失去了记忆…… 唯一我没有忘记的，就是那个约定—— “我在7年后等着你……” 那是和连长相名字都想不起的某人的约定。 为了取回失去的记忆...</li>
+				<li>
+					<div class="label">
+						<a href="">催泪</a>
+						<a href="">剧情</a>
+						<a href="">像素</a>
+						<div class="action">
+							<a href="">角色扮演</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/22.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/bluetriangle.png" alt="">
+			<p>12</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/23.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">明日方舟</a>
+				</li>
+				<li>
+					<a href="">厂商：鹰角网络</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<p>8.7</p>
+					</div>
+				</li>
+				<li>起因不明并四处肆虐的天灾，席卷过的土地上出现了大量的神秘矿物——被人们称为“源石”。虽然源石的发现历史已久，但是依赖于技术的进步，其蕴含的能量使得文明顺利迈入现代，但与此同时，源石本身...</li>
+				<li>
+					<div class="label">
+						<a href="">塔防</a>
+						<a href="">二次元</a>
+						<a href="">养成</a>
+						<div class="action">
+							<a href="">策略</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/24.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/bluetriangle.png" alt="">
+			<p>13</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/25.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">多多自走棋（不限量测试）</a>
+				</li>
+				<li>
+					<a href="">厂商：龙渊网络</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<p>6.6</p>
+					</div>
+				</li>
+				<li>《多多自走棋》是由龙渊网络和巨鸟多多联合研发，龙渊网络负责全球发行的全新多人在线集换式战棋类手游。玩家通过搭建个人局内经济体系，使用各具...</li>
+				<li>
+					<div class="label">
+						<a href="">自走棋</a>
+						<a href="">战棋</a>
+						<a href="">卡牌</a>
+						<div class="action">
+							<a href="">策略</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/26.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/bluetriangle.png" alt="">
+			<p>14</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/27.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">炉石传说</a>
+				</li>
+				<li>
+					<a href="">厂商：Blizzard Entertainment, Inc.</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<p>8.1</p>
+					</div>
+				</li>
+				<li>不可思议的简单。难以置信的有趣。 挑选您的卡牌来战个痛快吧！在《炉石传说（炉石传说：魔兽英雄传）》这款节奏明快的游戏中，您将扮演一位英雄...</li>
+				<li>
+					<div class="label">
+						<a href="">CCG</a>
+						<a href="">暴雪</a>
+						<a href="">策略</a>
+						<div class="action">
+							<a href="">策略</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/28.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<div class="triangle">
+			<img src="./images/bluetriangle.png" alt="">
+			<p>15</p>
+		</div>
+		<div class="icon">
+			<a href=""><img src="./images/29.png" alt=""></a>
+		</div>
+		<div class="content">
+			<ul>
+				<li>
+					<a href="">猫和老鼠：欢乐互动</a>
+				</li>
+				<li>
+					<a href="">厂商：网易游戏</a>
+				</li>
+				<li>
+					<div class="wujiaoxing">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/bluexing.png" alt="">
+						<img src="./images/grayxing.png" alt="">
+						<p>8.3</p>
+					</div>
+				</li>
+				<li>猫鼠追逃，尽享互动乐趣。智勇较量，谁能赢得胜利？《猫和老鼠》是由华纳兄弟互动娱乐正版IP授权，网易游戏诚意打造的欢乐互动手游。缤纷角色...</li>
+				<li>
+					<div class="label">
+						<a href="">多人</a>
+						<a href="">逃生</a>
+						<a href="">联机</a>
+						<div class="action">
+							<a href="">动作</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pic">
+			<a href=""><img src="./images/30.png" alt=""></a>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 更多 -->
+	<div class="more">
+		<ul>
+			<li>
+				<a href="#">更多</a>
+				<div class="moregames">
+					<div class="games">
+						<div class="triangle">
+							<img src="./images/bluetriangle.png" alt="">
+							<p>16</p>
+						</div>
+						<div class="icon">
+							<a href=""><img src="./images/31.png" alt=""></a>
+						</div>
+						<div class="content">
+							<ul>
+								<li>
+									<a href="">我在7年后等着你</a>
+								</li>
+								<li>
+									<a href="">厂商：扑家工作室</a>
+								</li>
+								<li>
+									<div class="wujiaoxing">
+										<img src="./images/bluexing.png" alt="">
+										<img src="./images/bluexing.png" alt="">
+										<img src="./images/bluexing.png" alt="">
+										<img src="./images/bluexing.png" alt="">
+										<img src="./images/bluexing.png" alt="">
+										<p>9.9</p>
+									</div>
+								</li>
+								<li>7年前，我失去了记忆…… 唯一我没有忘记的，就是那个约定—— “我在7年后等着你……” 那是和连长相名字都想不起的某人的约定。 为了取回失去的记忆...</li>
+								<li>
+									<div class="label">
+										<a href="">催泪</a>
+										<a href="">剧情</a>
+										<a href="">像素</a>
+										<div class="action">
+											<a href="">角色扮演</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="pic">
+							<a href=""><img src="./images/32.png" alt=""></a>
+						</div>
+					</div>
+				</div>
+				<!-- 更多隐藏游戏结束 -->
+			</li>
+		</ul>
+	</div>
+	<!-- 更多结束 -->
+	<!-- 更多隐藏游戏 -->
+	
+	
+	<!-- 底部 -->
+	<div class="bottom">
+		<div class="wrapper">
+			<!-- 底部左侧 -->
+			<div class="left">
+				<div class="one">
+					<img src="./images/bottom.png" alt="">
+					<ul class="one">
+				    	<li>
+				    		<p>中文（简体）</p>
+				    	</li>
+						<li>
+			    			<img src="./images/xiaosanjiao.png" alt="">
+				    		<!-- 语言弹框 -->
+							<div class="language">
+								<ul>
+									<li>选择语言</li>
+									<li><a href="">中文 (简体)</a></li>
+									<li><a href="">中文 (繁體)</a></li>
+									<li><a href="">English</a></li>
+									<li><a href="">日本語</a></li>
+									<li><a href="">한국어</a></li>
+								</ul>
+							</div>
+							<!-- 语言弹框结束 -->
+				    	</li>
+				    	<li><a href="https://www.taptap.com/developer">开发者中心</a></li>
+				    	<li><a href="https://www.taptap.com/ads">广告投放</a></li>
+				    	<li><a href="https://www.taptap.com/about-us">关于我们</a></li>
+				    	<li><a href="https://www.taptap.com/hr">加入我们</a></li>
+				    	<li><a href="https://www.taptap.com/verify">用户认证</a></li>
+				    </ul>
+				</div>
+				<div class="two">
+					<p>
+						Discover Superb Games.
+					</p>
+				</div>
+				<div class="three">
+					<ul>
+						<li>
+							<p>Copyright © 2019</p>
+						</li>
+						<li>
+							<a href="#首页">TapTap.</a>
+						</li>
+						<li>
+							<p>All rights Reserved.</p>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<p>适龄提示: 本公司产品适合 10 周岁以上玩家使用</p>
+						</li>
+						<li>
+							<a href="https://www.taptap.com/taptapjh">未成年人家长监护</a>
+						</li>
+						<li>
+							<a href="https://www.taptap.com/privacy-policy">隐私权政策</a>
+						</li>
+						<li>
+							<a href="https://www.taptap.com/copyright">侵权投诉</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a href="http://www.beian.miit.gov.cn/state/outPortal/loginPortal.action;jsessionid=HU6d_gUuNTL_h2LIZ8wcdoMoWmWZsvZBk0ZSY-zogn2gliJBQYTK!1412419682">沪ICP备16012525号-1</a>
+						</li>
+						<li>
+							<a href="https://www.taptap.com/license/www.html">沪网文(2016)2204-116号</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<p>经营许可证编号: 沪B2-20170322易玩（上海）网络科技有限公司</p>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<p>公司地址: 上海市静安区万荣路 700 号 A3 202</p>
+						</li>
+					</ul>
+				</div>
+				<div class="four">
+					<ul>
+						<li>
+							<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402003255">
+								<img src="./images/hugongwang.png" alt="">
+								沪公网安备 31010402003255号
+							</a>
+						</li>
+						<li>
+							<a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/35EE6340BAC97151E0530140A8C0E25A">
+								<img src="./images/hulianwang.png" alt="">
+								互联网文化经营单位
+							</a>
+						</li>
+						<li>
+							<div class="email">
+								<img src="./images/email.png" alt="">
+							</div>
+							<div class="hanzi">
+								<a href="http://www.shjbzx.cn/">上海市互联网<br>违法和不良<br>信息举报中心</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- 底部左侧结束 -->
+			<!-- 底部右侧 -->
+			<div class="right">
+				<div class="one">
+					<p>Contact Us</p>
+				</div>
+				<div class="two">
+					<ul>
+						<li>
+							<div class="facebook">
+								<a href="">
+								<img src="./images/facebook.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="weixin">
+								<a href="">
+									<img src="./images/weixin.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="qq">
+								<a href="">
+									<img src="./images/qq.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="zhihu">
+								<a href="">
+									<img src="./images/zhihu.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="weibo">
+								<a href="">
+									<img src="./images/weibo.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="mailbox">
+								<a href="">
+									<img src="./images/mailbox.png" alt="">
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="three">
+					<p>官方活动</p>
+				</div>
+				<div class="four">
+					<ul>
+						<li><a href="https://www.taptap.com/events/3rd-anniversary">TapTap 三周年</a></li>
+						<li><a href="https://www.taptap.com/campfire">篝火计划</a></li>
+						<li><a href="https://www.taptap.com/events/3rd-anniversary/doodle">涂鸦大赛</a></li>
+						<li><a href="https://www.taptap.com/game-awards2018">2018年度游戏大赏</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- 底部右侧结束 -->
+		</div>
+	</div>
+	<!-- 底部结束 -->
+</body>
+</html>

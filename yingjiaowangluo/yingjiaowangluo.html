@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鹰角网络</title>
+	<style>
+		body {
+			margin: 0;
+			background-color: #f2f2f2;
+		}
+		ul,p {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+			color: #333;
+		}
+		.wrapper {
+			width: 1200px;
+			margin: 0 auto;
+		}
+		.top {
+			background-color: #14b9c8;
+			width: 100%;
+			height: 80px;
+		}
+		.top a {
+			color: #fff;
+		}
+		/*图标*/
+		.top .wrapper .taptap img {
+			width:130px;
+			height: 40px;
+			float: left;
+			margin: 20px 10px 20px 80px;
+		}
+		.top .app {
+			float: left;
+			margin: 20px 10px;
+		}
+		.top .app a {
+			font-size: 10px;
+		}
+		.top .app img {
+			width: 20px;
+			height: 18px;
+		}
+		/*标题*/
+		.top .title {
+			float: left;
+		}
+		.top .title > ul > li  {
+			width: 90px;
+			text-align: center;
+			line-height: 5em;
+			font-size: 16px;
+			color: #fff;
+			float: left;
+		}
+		.top .title li:hover {
+			background-color: #34c3d2;
+		}
+		.top .title li:active {
+			background-color: #12a7b4;
+		}
+		/*搜索*/
+		.top .right {
+			float: left;
+			height: 30px;
+			width: 180px;
+			background-color: #b4ebfa;
+			border-top-left-radius: 1.5em;
+			border-top-right-radius: 1.5em;
+			border-bottom-left-radius: 1.5em;
+			border-bottom-right-radius: 1.5em;
+			margin: 25px auto;
+			margin-left: 30px;
+		}
+		/*搜索符号*/
+		.top .right .search img {
+			width: 20px;
+			height: 20px;
+			margin-left: 10px;
+			margin-top: 5px;
+			float: left;
+		}
+		/*搜索输入框*/
+		.top .right .search input {
+			margin-top: 6px;
+			background-color: #b4ebfa;
+			color: #14b9c8;
+			border: none;
+		}
+		/*选中搜索框，弹出提示框*/
+		.top .right .search li:hover > .tankuang {
+			display: block;
+		}
+		.top .right .search .tankuang {
+			width: 250px;
+			height: 195px;
+			background-color: #fff;
+			margin-top: 10px;
+			box-sizing: border-box;
+			border-radius: 5px;
+			box-shadow: 0 0 15px #ccc;
+			display: none;
+		}
+		.top .right .search .tankuang li {
+			padding: 5px;
+			font-size: 14px;
+			padding: 7px;
+		}
+		.top .right .search .tankuang li a {
+			color: #333;
+		}
+		.top .right .search .tankuang li:hover {
+			background-color: #b4ebfa;
+		}
+		.top .right .search .tankuang li:first-child {
+			background-color: #fafafa;
+			font-size: 12px;
+			color: #ccc;
+		}
+		.top .touxiang img {
+			width: 50px;
+			height: 50px;
+			float: right;
+			margin-right: 60px;
+			margin-top: 15px;
+		}
+		/*顶部位置提示栏*/
+		.note {
+			width: 100%;
+			height: 30px;
+			background-color: #fff;
+			border-bottom: #ccc;
+			box-shadow: 0 0 3px #ccc;
+		}
+		.note a {
+			color: #666;
+		}
+		.note a:hover {
+			text-decoration: underline;
+		}
+		.note ul {
+			float: left;
+			margin-left: 150px;
+			margin-top: 5px;
+		}
+		.note ul li {
+			font-size: 12px;
+			color: #666;
+			display: inline-block;
+			padding-left: 5px;
+		}
+		/*排行榜大图标*/
+		.icon {
+			margin-top: 15px;
+			text-align: center;
+		}
+		.tip {
+			margin-left: 560px; 
+		}
+		.tip li {
+			font-size: 18px;
+			display: inline-block;
+			margin-right: 50px;
+			padding-bottom: 5px;
+		}
+		.tip li:last-child {
+			margin-right: 0;
+		}
+		/*主体*/
+		.container {
+			width: 1040px;
+			margin: 0 auto;
+		}
+		/*第一栏*/
+		.first {
+			height: 150px;
+			margin-top: 15px;
+			background-color: #fff;
+			box-shadow: 0 0 10px #ccc;
+		}
+		.first li {
+			margin: 15px;
+			float: left;
+		}
+		.first li:nth-child(2) {
+			font-size: 20px;
+			font-weight: 800;
+		}
+		.first li:nth-child(3) {
+			color: #8a8a8a;
+			font-size: 14px;
+			margin-left: -95px;
+			margin-top: 45px;
+		}
+		.first li:nth-child(4) {
+			font-size: 20px;
+			color: #14b9c8;
+			float: right;
+			margin-right: 20px;
+			margin-top: 100px;
+		}
+		/*第二栏*/
+		.second ul {
+			height: 55px;
+			background-color: #fff;
+			margin-top: 10px;
+			box-shadow: 0 0 5px #ccc;
+			border-bottom: 1px solid #ccc;
+		}
+		.second ul > li {
+			float: left;
+			font-size: 20px;
+			margin:15px 55px;
+		}
+		.second ul > li:nth-child(1) {
+			margin: 15px 55px 15px 340px;
+		}
+		.second ul > li:nth-child(3),
+		.second ul > li:nth-child(5) {
+			font-size: 12px;
+			color: #ccc;
+			margin: 25px -55px;
+		}
+		.second ul > li > a:hover {
+			color: #14b9c8;
+		}
+		.third {
+			padding-top: 30px;
+			background-color: #fff;
+			height: 260px;
+		}
+		/*厂商简介*/
+		.third ul.changshang > li:nth-child(1) {
+			width: 5px;
+			height: 20px;
+			background-color: #14b9c8;
+			margin-top: 3px;
+			margin-left: 20px;
+			float: left;
+		}
+		.third ul.changshang > li:nth-child(2) {
+			font-size: 19px;
+			margin-left: 35px;
+			padding-top: -5px;
+		}
+		.third ul.changshang > li:nth-child(3) {
+			margin-top: 20px;
+			margin-left: 20px;
+			font-size: 14px;
+			color: #5c5959;
+			margin-bottom: 30px;
+		}
+		/*更多*/
+		.third ul.changshang a {
+			float: right;
+			color: #14b9c8;
+			margin-right: 20px;
+			margin-top: -40px;
+		}
+		/*厂商游戏*/
+		.third .CN img {
+			width: 65px;
+			height: 65px;
+			margin: -15px 10px 0 20px;
+			float: left;
+		}
+		.third .CN li:nth-child(1) {
+			font-size: 16px;
+			margin-top: -25px;
+		}
+		.third .CN li:nth-child(2)  {
+			margin-top: -20px;
+			margin-left: 25px;
+		}
+		/*回顶部*/
+		.toTop {
+			position: sticky;
+			top: 550px;
+			width: 50px;
+			height: 50px;
+			border-radius: 5px;
+			background-color: #fff;
+			float: right;
+			margin-right: 40px;
+		}
+		.toTop img {
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			margin: 10px;
+		}
+		.toTop .before img {
+			z-index: 1;
+		}
+		.toTop:hover {
+			background-color: #14b9c8;
+		}
+		.toTop:hover .before{
+			visibility: hidden;
+		}
+		.bottom {
+			bottom: 0;
+			background-color: #666666;
+			width: 100%;
+			height: 280px;
+			font-weight: 200;
+			text-align: center;
+		}
+		.bottom a,p {
+			color: #999999;
+		}
+		.bottom .wrapper {
+			width: 1040px;
+			padding: 30px 35px 0;
+		}
+		.bottom .wrapper .left {
+			width: 515px;
+			margin-right: 200px;
+			float: left;
+		}
+		.bottom .left .one {
+			height: 45px;
+		}
+		.bottom .left .one img {
+			margin-right: 10px;
+			width:120px;
+			height: 35px;
+			float: left;
+		}
+		.bottom .left .one > li > a {
+			font-size: 12px;
+			float: left;
+			margin-top: 20px;
+			margin-right: 8px;
+		}
+		.bottom .left .one > li > p {
+			font-size: 12px;
+			margin-top: 20px;
+			margin-right: -10px;
+			float: left;
+		}
+		.bottom .left li:hover > a {
+			text-decoration: underline;
+		}
+		/*语言选择框下拉小三角*/
+		.bottom .left .one > li > img {
+			width: 15px;
+			height: 15px;
+			margin-top: 23px ;
+			position: relative;
+		}
+		/*语言选项弹框*/
+		.bottom .left .one > li:hover > .language {
+			display: block;
+		}
+		.language {
+			float: left;
+			position: absolute;
+			width: 150px;
+			height: 200px;
+			background-color: #fff;
+			box-sizing: border-box;
+			border-radius: 5px;
+			margin-left: 125px;
+			margin-top: -180px;
+			display: none;
+		}
+		.language li {
+			padding: 10px;
+			font-size: 14px;
+			padding-top: 5px;
+		}
+		.language li a {
+			color: #333;
+		}
+		.language li:hover {
+			background-color: #f5f5f5;
+		}
+		.language li:first-child {
+			font-weight: 800;
+			color: #ccc;
+			background-color: #fff;
+		}
+		.bottom .left .two {
+			font-size: 26px;
+			margin-left: -255px;
+			margin-top: 5px;
+			margin-bottom: 20px;
+		}
+		.bottom .left .three {
+			float: left;
+			height: 95px;
+			margin-bottom: 8px;
+		}
+		.bottom .left .three > ul > li {
+			float: left;
+			font-size: 12px;
+			margin-right: 10px;
+			margin-top: 3px;
+		}
+		.bottom .left .four {
+			height: 35px;
+		}
+		.bottom .left .four > ul > li {
+			float: left;
+			padding-right: 10px;
+			font-size: 12px;
+		}
+		.bottom .left .four > ul > li > a {
+			text-decoration: none;
+		}
+		.bottom .left .four > ul > li > a > img {
+			margin-bottom: -5px;
+		}
+		.bottom .left .four > ul > li:nth-child(2) {
+			margin-top: 3px;
+		}
+		.bottom .left .four .email {
+			margin-top: -10px;
+			float: left;
+		}
+		.bottom .left .four .hanzi {
+			font-size: 6px;
+			text-align: center;
+			height: 10px;
+			width: 80px;
+		}
+		.bottom .left .four .hanzi a {
+			color: #fff;
+		}
+		/*底部右侧*/
+		.bottom .right {
+			float: right;
+			width: 320px;
+		}
+		.bottom .right p {
+			margin-left: -250px;
+			margin-bottom: 20px;
+		}
+		.bottom .right .two img {
+			float: left;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			margin-right: 13px;
+			margin-bottom: 20px;
+		}
+		/*设置图片透明*/
+		.bottom .right .two img:hover {
+			opacity: 0.7;
+		}
+		.bottom .right .two .facebook img {
+			background-color: #2d4485;
+		}
+		.bottom .right .two .weixin img {
+			background-color: #54be36;
+		}
+		.bottom .right .two .qq img {
+			background-color: #2c5c8f;
+		}
+		.bottom .right .two .zhihu img {
+			background-color: #0f7dfd;
+		}
+		.bottom .right .two .weibo img {
+			background-color: #ff0014;
+		}
+		.bottom .right .two .mailbox img {
+			background-color: #1998a5;
+		}
+		.bottom .right .three {
+			font-size: 12px;
+			margin-left: -20px;
+		}
+		.bottom .right .four ul li {
+			float: left;
+			font-size: 12px;
+			padding-right: 10px; 
+		}
+		.bottom .right .four ul li:hover a {
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<!-- 回顶部 -->
+	<div id="top"></div>
+	<!-- 回顶部结束 -->
+	<!-- 顶部 -->
+	<div class="top">
+		<!-- 容器1200px -->
+		<div class="wrapper">
+			<div class="taptap">
+				<a href="">
+					<img src="./images/0-1.png" alt="">
+				</a>
+			</div>
+			<div class="app">
+				<a href="">
+					<img src="./images/0-2.png" alt=""><br>
+					APP
+				</a>
+			</div>
+			<div class="title"> 
+				<ul>
+					<li><a href="../homePage/index.html">首页</a></li>
+					<li><a href="#ranking">排行榜</a></li>
+					<li><a href="#pctaptap.html">安利墙</a></li>
+					<li><a href="#">发现</a></li>
+					<li><a href="#">论坛</a></li>
+					<li><a href="#">视频</a></li>
+				</ul>
+			</div>	
+			<div class="right">
+				<ul class="search">
+					<li>
+						<a href="">
+							<img src="./images/0-4.png" alt="">
+						</a>
+					</li>
+					<li>
+						<input type="text" placeholder="搜索...">
+						<!-- 选中搜索框，弹出提示框 -->
+						<div class="tankuang">
+							<ul>
+								<li>热门搜索</li>
+								<li><a href="">奥拉星</a></li>
+								<li><a href="">王牌战士</a></li>
+								<li><a href="">香肠派对</a></li>
+								<li><a href="">闪耀暖暖</a></li>
+								<li><a href="">王者荣耀</a></li>
+							</ul>
+						</div>
+
+					</li>
+				</ul>
+			</div>
+			<div class="touxiang">
+				<img src="./images/0-3.png" alt="">
+			</div>
+		</div>
+	</div>
+	<!-- 顶部位置提示栏 -->
+	<div class="note">
+		<ul>
+			<li>你的位置：</li>
+			<li><a href="">首页</a></li>
+			<li> >> </li>
+			<li>鹰角网络</li>
+		</ul>
+	</div>
+	<!-- 顶部结束 -->
+
+	<!-- 主体 -->
+	<div class="container">
+		<!-- 第一栏 -->
+		<div class="first">
+			<ul>
+				<li>
+					<img src="./images/1.png" alt="">
+				</li>
+				<li>鹰角网络</li>
+				<li>粉丝数:51761</li>
+				<li>9.8分</li>
+			</ul>
+		</div>
+		<div class="second">
+			<ul>
+				<li><a href="">详情</a></li>
+				<li><a href="">评价</a></li>
+				<li><a href="">2424</a></li>
+				<li><a href="">论坛</a></li>
+				<li><a href="">73</a></li>
+			</ul>
+		</div>
+		<div class="third">
+			<ul class="changshang">
+				<li></li>
+				<li>厂商简介</li>
+				<li>
+					鹰角网络（HYPERGRYPH）是一家年轻的游戏公司。 为了制作出充满挑战乐趣与拥有艺术价值的游戏而诞生。 鹰角网络/Montagne工作室于2017年在上海成立， 创始成员来自谷歌/无极黑/Cygames等公司。 我们希望将自己的才智与热情倾注到充满希望的逻辑艺术事业中， 致力于构建独一无二的世界。
+				</li>
+			</ul>
+			<ul class="changshang">
+				<li></li>
+				<li>厂商游戏</li>
+				<li><a href="">更多</a></li>
+			</ul>
+			<div class="CN">
+				<img src="./images/2.png" alt="">
+				<ul class="up">
+					<li>明日方舟</li>
+					<li>CN</li>
+				</ul>
+				<ul class="down">
+					<li>8.7</li>
+					<li>
+						<img src="./images/grayxing.png" alt="">
+					</li>
+					<li>(2603574人关注)</li>
+				</ul>
+				<a href="">详情</a>
+				</div>
+			</div>
+	
+			
+			
+		</div>
+	</div>
+	<!-- 主体结束 -->
+	<!-- 回顶部 -->
+	<div class="toTop">
+		<div class="before">
+			<a href="#top">
+				<img src="./images/bluetop.png" alt="">
+			</a>
+		</div>
+		<div class="after">
+			<a href="#top">
+				<img src="./images/whitetop.png" alt="">
+			</a>
+		</div>
+	</div>
+	<!-- 回顶部结束 -->
+	
+	<!-- 底部 -->
+	<div class="bottom">
+		<div class="wrapper">
+			<!-- 底部左侧 -->
+			<div class="left">
+				<div class="one">
+					<img src="./images/bottom.png" alt="">
+					<ul class="one">
+				    	<li>
+				    		<p>中文（简体）</p>
+				    	</li>
+						<li>
+			    			<img src="./images/xiaosanjiao.png" alt="">
+				    		<!-- 语言弹框 -->
+							<div class="language">
+								<ul>
+									<li>选择语言</li>
+									<li><a href="">中文 (简体)</a></li>
+									<li><a href="">中文 (繁體)</a></li>
+									<li><a href="">English</a></li>
+									<li><a href="">日本語</a></li>
+									<li><a href="">한국어</a></li>
+								</ul>
+							</div>
+							<!-- 语言弹框结束 -->
+				    	</li>
+				    	<li><a href="https://www.taptap.com/developer">开发者中心</a></li>
+				    	<li><a href="https://www.taptap.com/ads">广告投放</a></li>
+				    	<li><a href="https://www.taptap.com/about-us">关于我们</a></li>
+				    	<li><a href="https://www.taptap.com/hr">加入我们</a></li>
+				    	<li><a href="https://www.taptap.com/verify">用户认证</a></li>
+				    </ul>
+				</div>
+				<div class="two">
+					<p>
+						Discover Superb Games.
+					</p>
+				</div>
+				<div class="three">
+					<ul>
+						<li>
+							<p>Copyright © 2019</p>
+						</li>
+						<li>
+							<a href="#首页">TapTap.</a>
+						</li>
+						<li>
+							<p>All rights Reserved.</p>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<p>适龄提示: 本公司产品适合 10 周岁以上玩家使用</p>
+						</li>
+						<li>
+							<a href="https://www.taptap.com/taptapjh">未成年人家长监护</a>
+						</li>
+						<li>
+							<a href="https://www.taptap.com/privacy-policy">隐私权政策</a>
+						</li>
+						<li>
+							<a href="https://www.taptap.com/copyright">侵权投诉</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a href="http://www.beian.miit.gov.cn/state/outPortal/loginPortal.action;jsessionid=HU6d_gUuNTL_h2LIZ8wcdoMoWmWZsvZBk0ZSY-zogn2gliJBQYTK!1412419682">沪ICP备16012525号-1</a>
+						</li>
+						<li>
+							<a href="https://www.taptap.com/license/www.html">沪网文(2016)2204-116号</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<p>经营许可证编号: 沪B2-20170322易玩（上海）网络科技有限公司</p>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<p>公司地址: 上海市静安区万荣路 700 号 A3 202</p>
+						</li>
+					</ul>
+				</div>
+				<div class="four">
+					<ul>
+						<li>
+							<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402003255">
+								<img src="./images/hugongwang.png" alt="">
+								沪公网安备 31010402003255号
+							</a>
+						</li>
+						<li>
+							<a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/35EE6340BAC97151E0530140A8C0E25A">
+								<img src="./images/hulianwang.png" alt="">
+								互联网文化经营单位
+							</a>
+						</li>
+						<li>
+							<div class="email">
+								<img src="./images/email.png" alt="">
+							</div>
+							<div class="hanzi">
+								<a href="http://www.shjbzx.cn/">上海市互联网<br>违法和不良<br>信息举报中心</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- 底部左侧结束 -->
+			<!-- 底部右侧 -->
+			<div class="right">
+				<div class="one">
+					<p>Contact Us</p>
+				</div>
+				<div class="two">
+					<ul>
+						<li>
+							<div class="facebook">
+								<a href="">
+								<img src="./images/facebook.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="weixin">
+								<a href="">
+									<img src="./images/weixin.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="qq">
+								<a href="">
+									<img src="./images/qq.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="zhihu">
+								<a href="">
+									<img src="./images/zhihu.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="weibo">
+								<a href="">
+									<img src="./images/weibo.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="mailbox">
+								<a href="">
+									<img src="./images/mailbox.png" alt="">
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="three">
+					<p>官方活动</p>
+				</div>
+				<div class="four">
+					<ul>
+						<li><a href="https://www.taptap.com/events/3rd-anniversary">TapTap 三周年</a></li>
+						<li><a href="https://www.taptap.com/campfire">篝火计划</a></li>
+						<li><a href="https://www.taptap.com/events/3rd-anniversary/doodle">涂鸦大赛</a></li>
+						<li><a href="https://www.taptap.com/game-awards2018">2018年度游戏大赏</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- 底部右侧结束 -->
+		</div>
+	</div>
+	<!-- 底部结束 -->
+</body>
+</html>

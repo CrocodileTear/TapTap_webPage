@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>厂商榜</title>
+	<style>
+		body {
+			margin: 0;
+			background-color: #f2f2f2;
+		}
+		ul,p {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+			color: #333;
+		}
+		.wrapper {
+			width: 1200px;
+			margin: 0 auto;
+		}
+		.top {
+			background-color: #14b9c8;
+			width: 100%;
+			height: 80px;
+		}
+		.top a {
+			color: #fff;
+		}
+		/*图标*/
+		.top .wrapper .taptap img {
+			width:130px;
+			height: 40px;
+			float: left;
+			margin: 20px 10px 20px 80px;
+		}
+		.top .app {
+			float: left;
+			margin: 20px 10px;
+		}
+		.top .app a {
+			font-size: 10px;
+		}
+		.top .app img {
+			width: 20px;
+			height: 18px;
+		}
+		/*标题*/
+		.top .title {
+			float: left;
+		}
+		.top .title > ul > li  {
+			width: 90px;
+			text-align: center;
+			line-height: 5em;
+			font-size: 16px;
+			color: #fff;
+			float: left;
+		}
+		.top .title li:hover {
+			background-color: #34c3d2;
+		}
+		.top .title li:active {
+			background-color: #12a7b4;
+		}
+		/*搜索*/
+		.top .right {
+			float: left;
+			height: 30px;
+			width: 180px;
+			background-color: #b4ebfa;
+			border-top-left-radius: 1.5em;
+			border-top-right-radius: 1.5em;
+			border-bottom-left-radius: 1.5em;
+			border-bottom-right-radius: 1.5em;
+			margin: 25px auto;
+			margin-left: 30px;
+		}
+		/*搜索符号*/
+		.top .right .search img {
+			width: 20px;
+			height: 20px;
+			margin-left: 10px;
+			margin-top: 5px;
+			float: left;
+		}
+		/*搜索输入框*/
+		.top .right .search input {
+			margin-top: 6px;
+			background-color: #b4ebfa;
+			color: #14b9c8;
+			border: none;
+		}
+		/*选中搜索框，弹出提示框*/
+		.top .right .search li:hover > .tankuang {
+			display: block;
+		}
+		.top .right .search .tankuang {
+			width: 250px;
+			height: 195px;
+			background-color: #fff;
+			margin-top: 10px;
+			box-sizing: border-box;
+			border-radius: 5px;
+			box-shadow: 0 0 15px #ccc;
+			display: none;
+		}
+		.top .right .search .tankuang li {
+			padding: 5px;
+			font-size: 14px;
+			padding: 7px;
+		}
+		.top .right .search .tankuang li a {
+			color: #333;
+		}
+		.top .right .search .tankuang li:hover {
+			background-color: #b4ebfa;
+		}
+		.top .right .search .tankuang li:first-child {
+			background-color: #fafafa;
+			font-size: 12px;
+			color: #ccc;
+		}
+		.top .touxiang img {
+			width: 50px;
+			height: 50px;
+			float: right;
+			margin-right: 60px;
+			margin-top: 15px;
+		}
+		/*顶部位置提示栏*/
+		.note {
+			width: 100%;
+			height: 30px;
+			background-color: #fff;
+			border-bottom: #ccc;
+			box-shadow: 0 0 3px #ccc;
+		}
+		.note a {
+			color: #666;
+		}
+		.note a:hover {
+			text-decoration: underline;
+		}
+		.note ul {
+			float: left;
+			margin-left: 150px;
+			margin-top: 5px;
+		}
+		.note ul li {
+			font-size: 12px;
+			color: #666;
+			display: inline-block;
+			padding-left: 5px;
+		}
+		/*排行榜大图标*/
+		.icon {
+			margin-top: 15px;
+			text-align: center;
+		}
+		.tip {
+			margin-left: 560px; 
+		}
+		.tip li {
+			font-size: 18px;
+			display: inline-block;
+			margin-right: 50px;
+			padding-bottom: 5px;
+		}
+		.tip li:last-child {
+			margin-right: 0;
+		}
+		/*分割线*/
+		.line {
+			margin:0 auto;
+			width: 1040px;
+			border-top: 1px solid #ccc;
+			margin-bottom: 20px;
+		}
+		/*游戏*/
+		.games ul.each {
+			margin:0 auto;
+			width: 1040px;
+			height: 160px;
+			background-color: #fff;
+			margin-bottom: 10px;
+			box-shadow: 0 0 5px #ccc;
+		}
+		.games ul.each > p {
+			width: 5px;
+		}
+		.games ul.each > li {
+			float: left;
+			margin: 15px;
+		}
+		.games ul.each > li:nth-child(1) {
+			font-size: 16px;
+			margin-left: 40px;
+			margin-top: 70px;
+		}
+		/*游戏中间具体内容*/
+		.games ul.each .content {
+			width: 645px;
+			font-size: 14px;
+		}
+		/*第一行*/
+		.games ul.each .one li:nth-child(1) {
+			font-size: 26px;
+			float: left;
+		}
+		.games ul.each .one li:nth-child(2),
+		.games ul.each .one li:nth-child(3) {
+			color: #8a8a8a;
+			padding: 12px 0;
+		}
+		.games ul.each .one li:nth-child(2) {
+			float: left;
+			margin: 0 15px;
+		}
+		/*第二行*/
+		.games ul.each .two li::after {
+			display: block;
+			content: "";
+			clear: both;
+		}
+		.games ul.each .two li {
+			float: left;
+			margin-right: 5px;
+		}
+		.games ul.each .two li img {
+			width: 3px;
+			height: 3px;
+		}
+		/*第三行*/
+		.games ul.each .content > p {
+			margin-top: 10px;
+			color: #333;
+			text-align: left;
+		}
+		/*关注*/
+		.games ul.each > li:last-child {
+			color: #12a7b4;
+			padding: 10px 30px;
+			border: 1px solid #12a7b4;
+			border-radius: 5px;
+			margin-top: 55px;
+		}
+		/*游戏结束*/
+		/*回顶部*/
+		.toTop {
+			position: sticky;
+			top: 550px;
+			width: 50px;
+			height: 50px;
+			border-radius: 5px;
+			background-color: #fff;
+			float: right;
+			margin-right: 40px;
+		}
+		.toTop img {
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			margin: 10px;
+		}
+		.toTop .before img {
+			z-index: 1;
+		}
+		.toTop:hover {
+			background-color: #14b9c8;
+		}
+		.toTop:hover .before{
+			visibility: hidden;
+		}
+		/*更多*/
+		.more {
+			text-align: center;
+			margin-top: 40px;
+			margin-bottom: 60px;
+		}
+		.more a{
+			font-size: 18px;
+			padding: 14px 27px;
+			background-color: #12a7b4;
+			border-radius: 5%;
+			color: #fff;
+		}
+		.more a:hover {
+			background-color: #b4ebfa;
+			color: #14b9c8;
+		}
+		.more:hover > .moregames {
+			display: block;
+		}
+		/*更多隐藏游戏*/
+		.moregames{
+			/*display: none;*/
+		}
+		.bottom {
+			bottom: 0;
+			background-color: #666666;
+			width: 100%;
+			height: 280px;
+			font-weight: 200;
+			text-align: center;
+		}
+		.bottom a,p {
+			color: #999999;
+		}
+		.bottom .wrapper {
+			width: 1040px;
+			padding: 30px 35px 0;
+		}
+		.bottom .wrapper .left {
+			width: 515px;
+			margin-right: 200px;
+			float: left;
+		}
+		.bottom .left .one {
+			height: 45px;
+		}
+		.bottom .left .one img {
+			margin-right: 10px;
+			width:120px;
+			height: 35px;
+			float: left;
+		}
+		.bottom .left .one > li > a {
+			font-size: 12px;
+			float: left;
+			margin-top: 20px;
+			margin-right: 8px;
+		}
+		.bottom .left .one > li > p {
+			font-size: 12px;
+			margin-top: 20px;
+			margin-right: -10px;
+			float: left;
+		}
+		.bottom .left li:hover > a {
+			text-decoration: underline;
+		}
+		/*语言选择框下拉小三角*/
+		.bottom .left .one > li > img {
+			width: 15px;
+			height: 15px;
+			margin-top: 23px ;
+			position: relative;
+		}
+		/*语言选项弹框*/
+		.bottom .left .one > li:hover > .language {
+			display: block;
+		}
+		.language {
+			float: left;
+			position: absolute;
+			width: 150px;
+			height: 200px;
+			background-color: #fff;
+			box-sizing: border-box;
+			border-radius: 5px;
+			margin-left: 125px;
+			margin-top: -180px;
+			display: none;
+		}
+		.language li {
+			padding: 10px;
+			font-size: 14px;
+			padding-top: 5px;
+		}
+		.language li a {
+			color: #333;
+		}
+		.language li:hover {
+			background-color: #f5f5f5;
+		}
+		.language li:first-child {
+			font-weight: 800;
+			color: #ccc;
+			background-color: #fff;
+		}
+		.bottom .left .two {
+			font-size: 26px;
+			margin-left: -255px;
+			margin-top: 5px;
+			margin-bottom: 20px;
+		}
+		.bottom .left .three {
+			float: left;
+			height: 95px;
+			margin-bottom: 8px;
+		}
+		.bottom .left .three > ul > li {
+			float: left;
+			font-size: 12px;
+			margin-right: 10px;
+			margin-top: 3px;
+		}
+		.bottom .left .four {
+			height: 35px;
+		}
+		.bottom .left .four > ul > li {
+			float: left;
+			padding-right: 10px;
+			font-size: 12px;
+		}
+		.bottom .left .four > ul > li > a {
+			text-decoration: none;
+		}
+		.bottom .left .four > ul > li > a > img {
+			margin-bottom: -5px;
+		}
+		.bottom .left .four > ul > li:nth-child(2) {
+			margin-top: 3px;
+		}
+		.bottom .left .four .email {
+			margin-top: -10px;
+			float: left;
+		}
+		.bottom .left .four .hanzi {
+			font-size: 6px;
+			text-align: center;
+			height: 10px;
+			width: 80px;
+		}
+		.bottom .left .four .hanzi a {
+			color: #fff;
+		}
+		/*底部右侧*/
+		.bottom .right {
+			float: right;
+			width: 320px;
+		}
+		.bottom .right p {
+			margin-left: -250px;
+			margin-bottom: 20px;
+		}
+		.bottom .right .two img {
+			float: left;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			margin-right: 13px;
+			margin-bottom: 20px;
+		}
+		/*设置图片透明*/
+		.bottom .right .two img:hover {
+			opacity: 0.7;
+		}
+		.bottom .right .two .facebook img {
+			background-color: #2d4485;
+		}
+		.bottom .right .two .weixin img {
+			background-color: #54be36;
+		}
+		.bottom .right .two .qq img {
+			background-color: #2c5c8f;
+		}
+		.bottom .right .two .zhihu img {
+			background-color: #0f7dfd;
+		}
+		.bottom .right .two .weibo img {
+			background-color: #ff0014;
+		}
+		.bottom .right .two .mailbox img {
+			background-color: #1998a5;
+		}
+		.bottom .right .three {
+			font-size: 12px;
+			margin-left: -20px;
+		}
+		.bottom .right .four ul li {
+			float: left;
+			font-size: 12px;
+			padding-right: 10px; 
+		}
+		.bottom .right .four ul li:hover a {
+			text-decoration: underline;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- 回顶部 -->
+	<div id="top"></div>
+	<!-- 回顶部结束 -->
+	<!-- 顶部 -->
+	<div class="top">
+		<!-- 容器1200px -->
+		<div class="wrapper">
+			<div class="taptap">
+				<a href="">
+					<img src="./images/0-1.png" alt="">
+				</a>
+			</div>
+			<div class="app">
+				<a href="">
+					<img src="./images/0-2.png" alt=""><br>
+					APP
+				</a>
+			</div>
+			<div class="title"> 
+				<ul>
+					<li><a href="../homePage/index.html">首页</a></li>
+					<li><a href="#ranking">排行榜</a></li>
+					<li><a href="#pctaptap.html">安利墙</a></li>
+					<li><a href="#">发现</a></li>
+					<li><a href="#">论坛</a></li>
+					<li><a href="#">视频</a></li>
+				</ul>
+			</div>	
+			<div class="right">
+				<ul class="search">
+					<li>
+						<a href="">
+							<img src="./images/0-4.png" alt="">
+						</a>
+					</li>
+					<li>
+						<input type="text" placeholder="搜索...">
+						<!-- 选中搜索框，弹出提示框 -->
+						<div class="tankuang">
+							<ul>
+								<li>热门搜索</li>
+								<li><a href="">奥拉星</a></li>
+								<li><a href="">王牌战士</a></li>
+								<li><a href="">香肠派对</a></li>
+								<li><a href="">闪耀暖暖</a></li>
+								<li><a href="">王者荣耀</a></li>
+							</ul>
+						</div>
+
+					</li>
+				</ul>
+			</div>
+			<div class="touxiang">
+				<img src="./images/0-3.png" alt="">
+			</div>
+		</div>
+	</div>
+	<!-- 顶部位置提示栏 -->
+	<div class="note">
+		<ul>
+			<li>你的位置：</li>
+			<li><a href="">首页</a></li>
+			<li> >> </li>
+			<li>厂商榜</li>
+		</ul>
+	</div>
+	<!-- 顶部结束 -->
+	<!-- 主体 -->
+	<!-- 排行榜大图标 -->
+	<div class="icon">
+		<img src="./images/1-1.png" alt="">
+	</div>
+	<div class="tip">
+		<ul>
+			<li><a href="../remen/hot.html">Android 游戏榜</a></li>
+			<li><a href="">厂商榜</a></li>
+		</ul>
+	</div>
+	<!-- 分割线 -->
+	<div class="line"></div>
+	<!-- 游戏 -->
+	<div class="games">
+		<ul class="each">
+			<li style="color: #fea87d;">1</li>
+			<li>
+				<img src="./images/1.png" alt="">
+			</li>
+			<li>
+				<div class="content">
+					<ul class="one">
+						<li>鹰角网络</li>
+						<li>粉丝数：51151</li>
+						<li>评分：9.8分</li>
+					</ul>
+					<ul class="two">
+						<li>2款游戏</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>2397人评价</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>73篇论坛帖</li><br>
+					</ul>
+					<p>鹰角网络（HYPERGRYPH）是一家年轻的游戏公司。 为了制作出充满挑战乐趣与拥有艺术价值的游戏而诞生。鹰角网络/Montagne工作室于2017年在上海成立， 创始成员来自谷歌/无极黑/Cygames等公司...</p>
+				</div>
+			</li>
+			<li>关注</li>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<ul class="each">
+			<li style="color: #fea87d;">2</li>
+			<li>
+				<img src="./images/2.png" alt="">
+			</li>
+			<li>
+				<div class="content">
+					<ul class="one">
+						<li>腾讯</li>
+						<li>粉丝数：706091</li>
+						<li>评分：3.8分</li>
+					</ul>
+					<ul class="two">
+						<li>200款游戏</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>48956人评价</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>304篇论坛帖</li><br>
+					</ul>
+				</div>
+			</li>
+			<li>关注</li>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<ul class="each">
+			<li style="color: #fea87d;">3</li>
+			<li>
+				<img src="./images/3.png" alt="">
+			</li>
+			<li>
+				<div class="content">
+					<ul class="one">
+						<li>网易游戏</li>
+						<li>粉丝数：950826</li>
+						<li>评分：4.9分</li>
+					</ul>
+					<ul class="two">
+						<li>187款游戏</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>22051人评价</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>568篇论坛帖</li><br>
+					</ul>
+					<p>2015年，网易游戏正式开启“游戏热爱者”品牌战略，用自身行动传导热爱者价值，并全面启动“聚合精品，共享热爱”战略计划，以全球化视野为游戏热爱者创造和发现好玩的精品游戏，提高游戏准入门槛...</p>
+				</div>
+			</li>
+			<li>关注</li>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<ul class="each">
+			<li style="color: #d1c6b3;">4</li>
+			<li>
+				<img src="./images/4.png" alt="">
+			</li>
+			<li>
+				<div class="content">
+					<ul class="one">
+						<li>扑家工作室</li>
+						<li>粉丝数：151835</li>
+						<li>评分：10分</li>
+					</ul>
+					<ul class="two">
+						<li>110款游戏</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>1917人评价</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>23篇论坛帖</li><br>
+					</ul>
+					<p>由扑家汉化组进化而来，致力于引进海外精品单机游戏，献给国内喜欢单机游戏的玩家。</p>
+				</div>
+			</li>
+			<li>关注</li>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<ul class="each">
+			<li style="color: #d1c6b3;">5</li>
+			<li>
+				<img src="./images/5.png" alt="">
+			</li>
+			<li>
+				<div class="content">
+					<ul class="one">
+						<li>凉屋游戏</li>
+						<li>粉丝数：202824</li>
+						<li>评分：10分</li>
+					</ul>
+					<ul class="two">
+						<li>8款游戏</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>5482人评价</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>163篇论坛帖</li><br>
+					</ul>
+					<p>我们是深圳的独立游戏团队“凉屋游戏”，坚持做有节操有创意又能赚钱的好游戏。 我们在持续招募优秀人才，详细职位及要求可访问官网 http://www.chillyroom.com</p>
+				</div>
+			</li>
+			<li>关注</li>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<ul class="each">
+			<li style="color: #d1c6b3;">6</li>
+			<li>
+				<img src="./images/6.png" alt="">
+			</li>
+			<li>
+				<div class="content">
+					<ul class="one">
+						<li>哔哩哔哩游戏</li>
+						<li>粉丝数：463772</li>
+						<li>评分：8.4分</li>
+					</ul>
+					<ul class="two">
+						<li>37款游戏</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>9813人评价</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>36篇论坛帖</li><br>
+					</ul>
+				</div>
+			</li>
+			<li>关注</li>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<ul class="each">
+			<li style="color: #d1c6b3;">7</li>
+			<li>
+				<img src="./images/7.png" alt="">
+			</li>
+			<li>
+				<div class="content">
+					<ul class="one">
+						<li>Tencent Games</li>
+						<li>粉丝数：259453</li>
+						<li>评分：6.3分</li>
+					</ul>
+					<ul class="two">
+						<li>13款游戏</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>3388人评价</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>69篇论坛帖</li><br>
+					</ul>
+				</div>
+			</li>
+			<li>关注</li>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<ul class="each">
+			<li style="color: #d1c6b3;">8</li>
+			<li>
+				<img src="./images/8.png" alt="">
+			</li>
+			<li>
+				<div class="content">
+					<ul class="one">
+						<li>育碧中国</li>
+						<li>粉丝数：55484</li>
+						<li>评分：9.7分</li>
+					</ul>
+					<ul class="two">
+						<li>31款游戏</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>912人评价</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>72篇论坛帖</li><br>
+					</ul>
+				</div>
+			</li>
+			<li>关注</li>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 游戏 -->
+	<div class="games">
+		<ul class="each">
+			<li style="color: #d1c6b3;">9</li>
+			<li>
+				<img src="./images/9.png" alt="">
+			</li>
+			<li>
+				<div class="content">
+					<ul class="one">
+						<li>miHoYo</li>
+						<li>粉丝数：99746</li>
+						<li>评分：8.1分</li>
+					</ul>
+					<ul class="two">
+						<li>8款游戏</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>4590人评价</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>64篇论坛帖</li><br>
+					</ul>
+					<p>米哈游主要由三位热爱技术、游戏、漫画等文化的上海交通大学学生创立。公司成立于2012年，业务主要集中在国创移动游戏、漫画等领域。 作为研发商，米哈游陆续推出了《崩坏学园》、《崩坏学园2》...</p>
+				</div>
+			</li>
+			<li>关注</li>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+		<!-- 游戏 -->
+	<div class="games">
+		<ul class="each">
+			<li style="color: #d1c6b3;">10</li>
+			<li>
+				<img src="./images/10.png" alt="">
+			</li>
+			<li>
+				<div class="content">
+					<ul class="one">
+						<li>Gameloft</li>
+						<li>粉丝数：574323</li>
+						<li>评分：9.1分</li>
+					</ul>
+					<ul class="two">
+						<li>66款游戏</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>4005人评价</li>
+						<li>
+							<img src="./images/jiangedian.png" alt="">
+						</li>
+						<li>28篇论坛帖</li><br>
+					</ul>
+					<p>Gameloft在超过15年的时间里，一直致力于创造最完美的娱乐体验，为各类玩家提供无限乐趣。</p>
+				</div>
+			</li>
+			<li>关注</li>
+		</div>
+	</div>
+	<!-- 游戏结束 -->
+	<!-- 更多 -->
+	<div class="more">
+		<ul>
+			<li>
+				<a href="">更多</a>
+			</li>
+		</ul>
+	</div>
+	<!-- 更多结束 -->
+	<!-- 回顶部 -->
+	<div class="toTop">
+		<div class="before">
+			<a href="#top">
+				<img src="./images/bluetop.png" alt="">
+			</a>
+		</div>
+		<div class="after">
+			<a href="#top">
+				<img src="./images/whitetop.png" alt="">
+			</a>
+		</div>
+	</div>
+	<!-- 回顶部结束 -->
+	
+	<!-- 底部 -->
+	<div class="bottom">
+		<div class="wrapper">
+			<!-- 底部左侧 -->
+			<div class="left">
+				<div class="one">
+					<img src="./images/bottom.png" alt="">
+					<ul class="one">
+				    	<li>
+				    		<p>中文（简体）</p>
+				    	</li>
+						<li>
+			    			<img src="./images/xiaosanjiao.png" alt="">
+				    		<!-- 语言弹框 -->
+							<div class="language">
+								<ul>
+									<li>选择语言</li>
+									<li><a href="">中文 (简体)</a></li>
+									<li><a href="">中文 (繁體)</a></li>
+									<li><a href="">English</a></li>
+									<li><a href="">日本語</a></li>
+									<li><a href="">한국어</a></li>
+								</ul>
+							</div>
+							<!-- 语言弹框结束 -->
+				    	</li>
+				    	<li><a href="https://www.taptap.com/developer">开发者中心</a></li>
+				    	<li><a href="https://www.taptap.com/ads">广告投放</a></li>
+				    	<li><a href="https://www.taptap.com/about-us">关于我们</a></li>
+				    	<li><a href="https://www.taptap.com/hr">加入我们</a></li>
+				    	<li><a href="https://www.taptap.com/verify">用户认证</a></li>
+				    </ul>
+				</div>
+				<div class="two">
+					<p>
+						Discover Superb Games.
+					</p>
+				</div>
+				<div class="three">
+					<ul>
+						<li>
+							<p>Copyright © 2019</p>
+						</li>
+						<li>
+							<a href="#首页">TapTap.</a>
+						</li>
+						<li>
+							<p>All rights Reserved.</p>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<p>适龄提示: 本公司产品适合 10 周岁以上玩家使用</p>
+						</li>
+						<li>
+							<a href="https://www.taptap.com/taptapjh">未成年人家长监护</a>
+						</li>
+						<li>
+							<a href="https://www.taptap.com/privacy-policy">隐私权政策</a>
+						</li>
+						<li>
+							<a href="https://www.taptap.com/copyright">侵权投诉</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a href="http://www.beian.miit.gov.cn/state/outPortal/loginPortal.action;jsessionid=HU6d_gUuNTL_h2LIZ8wcdoMoWmWZsvZBk0ZSY-zogn2gliJBQYTK!1412419682">沪ICP备16012525号-1</a>
+						</li>
+						<li>
+							<a href="https://www.taptap.com/license/www.html">沪网文(2016)2204-116号</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<p>经营许可证编号: 沪B2-20170322易玩（上海）网络科技有限公司</p>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<p>公司地址: 上海市静安区万荣路 700 号 A3 202</p>
+						</li>
+					</ul>
+				</div>
+				<div class="four">
+					<ul>
+						<li>
+							<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402003255">
+								<img src="./images/hugongwang.png" alt="">
+								沪公网安备 31010402003255号
+							</a>
+						</li>
+						<li>
+							<a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/35EE6340BAC97151E0530140A8C0E25A">
+								<img src="./images/hulianwang.png" alt="">
+								互联网文化经营单位
+							</a>
+						</li>
+						<li>
+							<div class="email">
+								<img src="./images/email.png" alt="">
+							</div>
+							<div class="hanzi">
+								<a href="http://www.shjbzx.cn/">上海市互联网<br>违法和不良<br>信息举报中心</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- 底部左侧结束 -->
+			<!-- 底部右侧 -->
+			<div class="right">
+				<div class="one">
+					<p>Contact Us</p>
+				</div>
+				<div class="two">
+					<ul>
+						<li>
+							<div class="facebook">
+								<a href="">
+								<img src="./images/facebook.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="weixin">
+								<a href="">
+									<img src="./images/weixin.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="qq">
+								<a href="">
+									<img src="./images/qq.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="zhihu">
+								<a href="">
+									<img src="./images/zhihu.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="weibo">
+								<a href="">
+									<img src="./images/weibo.png" alt="">
+								</a>
+							</div>
+						</li>
+						<li>
+							<div class="mailbox">
+								<a href="">
+									<img src="./images/mailbox.png" alt="">
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="three">
+					<p>官方活动</p>
+				</div>
+				<div class="four">
+					<ul>
+						<li><a href="https://www.taptap.com/events/3rd-anniversary">TapTap 三周年</a></li>
+						<li><a href="https://www.taptap.com/campfire">篝火计划</a></li>
+						<li><a href="https://www.taptap.com/events/3rd-anniversary/doodle">涂鸦大赛</a></li>
+						<li><a href="https://www.taptap.com/game-awards2018">2018年度游戏大赏</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- 底部右侧结束 -->
+		</div>
+	</div>
+	<!-- 底部结束 -->
+</body>
+</html>
